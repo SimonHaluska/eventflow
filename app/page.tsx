@@ -23,10 +23,6 @@ export default function Home() {
           </div>
         </div>
 
-        <p className="animate-fade-up delay-200 mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gold-dark">
-          Eventová agentúra
-        </p>
-
         <h1 className="animate-fade-up delay-300 font-display max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
           Od konceptu po posledného hosťa
         </h1>
