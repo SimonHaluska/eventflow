@@ -63,10 +63,10 @@ export default function Footer() {
       <div className="mx-auto max-w-5xl space-y-10">
 
         {/* Hlavná mriežka — 4 stĺpce na desktope */}
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-4 sm:items-start">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-4">
 
           {/* Logo + popis + sociálne siete */}
-          <div className="sm:col-span-1">
+          <div className="self-start sm:col-span-1">
             <Link href="/" className="flex items-center gap-3">
               <Image
                 src="/logo.png"
@@ -105,7 +105,7 @@ export default function Footer() {
           </div>
 
           {/* Navigácia */}
-          <div>
+          <div className="self-start">
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
               Navigácia
             </p>
@@ -124,7 +124,7 @@ export default function Footer() {
           </div>
 
           {/* Segmenty */}
-          <div>
+          <div className="self-start">
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
               Segmenty
             </p>
@@ -143,7 +143,7 @@ export default function Footer() {
           </div>
 
           {/* Mapa + sociálne siete (mobile) — napravo od segmentov na desktope */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 self-start">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
               Kde nás nájdete
             </p>
