@@ -105,7 +105,7 @@ export default function Footer() {
           </div>
 
           {/* Navigácia */}
-          <div className="self-start sm:pt-[8px]">
+          <div className="self-start sm:pt-[6px]">
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
               Navigácia
             </p>
@@ -124,7 +124,7 @@ export default function Footer() {
           </div>
 
           {/* Segmenty */}
-          <div className="self-start sm:pt-[8px]">
+          <div className="self-start sm:pt-[6px]">
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
               Segmenty
             </p>
@@ -143,7 +143,7 @@ export default function Footer() {
           </div>
 
           {/* Mapa + sociálne siete (mobile) — napravo od segmentov na desktope */}
-          <div className="flex flex-col gap-4 self-start sm:pt-[8px]">
+          <div className="flex flex-col gap-4 self-start sm:pt-[6px]">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
               Kde nás nájdete
             </p>
