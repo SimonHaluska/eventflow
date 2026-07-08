@@ -67,12 +67,12 @@ export default function Footer() {
 
           {/* Logo + popis + sociálne siete */}
           <div className="self-start sm:col-span-1">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-start gap-3">
               <Image
                 src="/logo.png"
                 alt="Logo Momentum Events"
-                width={44}
-                height={44}
+                width={40}
+                height={40}
                 priority
                 className="brightness-0 invert"
               />
@@ -106,10 +106,7 @@ export default function Footer() {
 
           {/* Navigácia */}
           <div className="self-start">
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
-              Navigácia
-            </p>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href + link.label}>
                   <Link
@@ -125,10 +122,7 @@ export default function Footer() {
 
           {/* Segmenty */}
           <div className="self-start">
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
-              Segmenty
-            </p>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {segments.map((s) => (
                 <li key={s.label}>
                   <Link
@@ -144,10 +138,6 @@ export default function Footer() {
 
           {/* Mapa + sociálne siete (mobile) — napravo od segmentov na desktope */}
           <div className="flex flex-col gap-4 self-start">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
-              Kde nás nájdete
-            </p>
-
             <div className="w-full overflow-hidden rounded-xl border border-background/10">
               <div className="relative h-40 w-full sm:aspect-square sm:h-auto">
                 <iframe
