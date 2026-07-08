@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "/sluzby", label: "Služby" },
+  { href: "/sluzby", label: "Cenník" },
   { href: "/ako-to-funguje", label: "Ako to funguje" },
   { href: "/portfolio", label: "Portfólio" },
   { href: "/o-nas", label: "O nás" },
