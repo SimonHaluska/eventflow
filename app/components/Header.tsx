@@ -37,7 +37,6 @@ export default function Header() {
             width={44}
             height={44}
             priority
-            className="logo"
           />
           <span className="font-display text-lg font-semibold tracking-wide">
             Haka
