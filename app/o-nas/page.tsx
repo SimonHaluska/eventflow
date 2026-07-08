@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 export default function ONasPage() {
   return (
     <>
-      <Services />
       <About />
+      <Services />
     </>
   );
 }
