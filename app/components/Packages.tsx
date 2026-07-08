@@ -298,7 +298,7 @@ export default function Packages() {
                 {selectedPkg?.segment} — balík {selectedPkg?.pkg}
               </h3>
               <p className="mt-2 text-sm text-muted">
-                Vyplňte formulár a ozveme sa vám do 2 pracovných dní.
+                Vyplňte formulár a ozveme sa vám čo najskôr, ideálne ešte v ten istý deň.
               </p>
             </div>
 
