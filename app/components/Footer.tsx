@@ -47,6 +47,7 @@ const socialLinks = [
 ];
 
 const navSlugs = [
+  { key: "home" as const, slug: "" },
   { key: "pricing" as const, slug: "/sluzby" },
   { key: "howItWorks" as const, slug: "/ako-to-funguje" },
   { key: "portfolio" as const, slug: "/portfolio" },

@@ -32,6 +32,7 @@
   "header": {
     "logoAlt": "Momentum Events Logo",
     "nav": {
+      "home": "Home",
       "pricing": "Pricing",
       "howItWorks": "How It Works",
       "portfolio": "Portfolio",
@@ -47,6 +48,7 @@
     "followUs": "Follow Us",
     "navTitle": "Navigation",
     "nav": {
+      "home": "Home",
       "pricing": "Pricing",
       "howItWorks": "How It Works",
       "portfolio": "Portfolio",

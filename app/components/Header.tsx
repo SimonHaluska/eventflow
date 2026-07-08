@@ -9,6 +9,7 @@ import type { Dictionary } from "../[lang]/dictionaries";
 type Props = { dict: Dictionary["header"] };
 
 const navSlugs = [
+  { key: "home" as const, slug: "" },
   { key: "pricing" as const, slug: "/sluzby" },
   { key: "howItWorks" as const, slug: "/ako-to-funguje" },
   { key: "portfolio" as const, slug: "/portfolio" },
@@ -58,7 +59,10 @@ export default function Header({ dict }: Props) {
         <nav className="hidden items-center gap-8 sm:flex">
           {navSlugs.map(({ key, slug }) => {
             const href = `/${lang}${slug}`;
-            const isActive = pathname === href || pathname.startsWith(href + "/");
+            const isActive =
+              slug === ""
+                ? pathname === `/${lang}` || pathname === `/${lang}/`
+                : pathname === href || pathname.startsWith(href + "/");
             return (
               <Link
                 key={key}

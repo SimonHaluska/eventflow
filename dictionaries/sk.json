@@ -32,6 +32,7 @@
   "header": {
     "logoAlt": "Logo Momentum Events",
     "nav": {
+      "home": "Úvod",
       "pricing": "Cenník",
       "howItWorks": "Ako to funguje",
       "portfolio": "Portfólio",
@@ -47,6 +48,7 @@
     "followUs": "Sledujte nás",
     "navTitle": "Navigácia",
     "nav": {
+      "home": "Úvod",
       "pricing": "Cenník",
       "howItWorks": "Ako to funguje",
       "portfolio": "Portfólio",
