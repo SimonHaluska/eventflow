@@ -6,11 +6,11 @@ export default function Home() {
     <section className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center sm:py-32">
       <Image
         src="/logo.png"
-        alt="Logo agentúry"
+        alt="Logo Haka"
         width={160}
         height={160}
         priority
-        className="mb-10"
+        className="mb-10 logo-blend"
       />
 
       <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gold-dark">
