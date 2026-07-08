@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Contact from "../components/Contact";
 
 export const metadata: Metadata = {
-  title: "Kontakt | Haka",
+  title: "Kontakt | Momentum Events",
   description:
     "Napíšte nám a ozveme sa do 24 hodín. Nezáväzná konzultácia je zadarmo.",
 };

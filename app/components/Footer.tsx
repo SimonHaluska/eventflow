@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
@@ -66,10 +65,9 @@ export default function Footer() {
 
           {/* Logo + popis + sociálne siete */}
           <div className="sm:col-span-1">
-            <Link href="/" className="flex items-center gap-3">
-              <Image src="/logo.png" alt="Logo Haka" width={44} height={44} priority className="invert" />
-              <span className="font-display text-lg font-semibold tracking-wide text-background">
-                Haka
+            <Link href="/" className="inline-block">
+              <span className="font-display text-xl font-semibold tracking-wide text-background">
+                Momentum Events
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-background/60">
@@ -143,7 +141,7 @@ export default function Footer() {
             <div className="w-full overflow-hidden rounded-xl border border-background/10">
               <div className="relative h-40 w-full sm:aspect-square sm:h-auto">
                 <iframe
-                  title="Haka – poloha"
+                  title="Momentum Events – poloha"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42399.10226924927!2d17.0699!3d48.1486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c89360bdf9e79%3A0xa1ccd56258bc25d0!2sBratislava!5e0!3m2!1ssk!2ssk!4v1700000000000"
                   className="absolute inset-0 h-full w-full"
                   style={{
@@ -181,13 +179,13 @@ export default function Footer() {
         {/* Spodná lišta */}
         <div className="flex flex-col items-center justify-between gap-3 border-t border-background/10 pt-8 sm:flex-row">
           <p className="text-xs text-background/40">
-            © {year} Haka. Všetky práva vyhradené.
+            © {year} Momentum Events. Všetky práva vyhradené.
           </p>
           <a
-            href="mailto:info@haka.sk"
+            href="mailto:info@momentumevents.sk"
             className="text-xs text-background/40 transition hover:text-background"
           >
-            info@haka.sk
+            info@momentumevents.sk
           </a>
         </div>
       </div>

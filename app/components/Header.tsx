@@ -33,13 +33,14 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/logo.png"
-            alt="Logo Haka"
+            alt="Logo Momentum Events"
             width={44}
             height={44}
             priority
+            style={{ mixBlendMode: "multiply" }}
           />
           <span className="font-display text-lg font-semibold tracking-wide">
-            Haka
+            Momentum Events
           </span>
         </Link>
 

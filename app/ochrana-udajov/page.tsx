@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ochrana osobných údajov | Haka",
-  description: "Zásady ochrany osobných údajov agentúry Haka.",
+  title: "Ochrana osobných údajov | Momentum Events",
+  description: "Zásady ochrany osobných údajov agentúry Momentum Events.",
 };
 
 export default function OchranaUdajovPage() {
@@ -21,8 +21,8 @@ export default function OchranaUdajovPage() {
 
           <h2>1. Prevádzkovateľ</h2>
           <p>
-            Prevádzkovateľom osobných údajov je spoločnosť Haka, s.r.o. (ďalej
-            len „Haka" alebo „my"). Kontakt: info@haka.sk
+            Prevádzkovateľom osobných údajov je spoločnosť Momentum Events, s.r.o. (ďalej
+            len „Momentum Events" alebo „my"). Kontakt: info@momentumevents.sk
           </p>
 
           <h2>2. Aké údaje zbierame</h2>

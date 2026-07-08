@@ -15,10 +15,11 @@ export default function Home() {
           <div className="relative z-10 p-4">
             <Image
               src="/logo.png"
-              alt="Logo Haka"
+              alt="Logo Momentum Events"
               width={160}
               height={160}
               priority
+              style={{ mixBlendMode: "multiply" }}
             />
           </div>
         </div>

@@ -4,7 +4,7 @@ import Packages from "../components/Packages";
 import Services from "../components/Services";
 
 export const metadata: Metadata = {
-  title: "Služby | Haka",
+  title: "Služby | Momentum Events",
   description:
     "Súkromné oslavy, zvieracie eventy, teambuildingy a športové podujatia. Tri balíky služieb pre každý segment.",
 };

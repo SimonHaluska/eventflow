@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Haka | Eventová agentúra",
+  title: "Momentum Events | Eventová agentúra",
   description:
     "Organizujeme športové podujatia, teambuildingy a súkromné oslavy. Od konceptu po posledného hosťa.",
 };

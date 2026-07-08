@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portfólio | Haka",
+  title: "Portfólio | Momentum Events",
   description: "Galéria realizovaných eventov — oslavy, teambuildingy a športové podujatia.",
 };
 
