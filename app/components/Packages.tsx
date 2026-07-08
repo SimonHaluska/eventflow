@@ -188,7 +188,11 @@ export default function Packages() {
   const [activeSegment, setActiveSegment] = useState(segments[0].id);
   const [selectedPkg, setSelectedPkg] = useState<{ segment: string; pkg: string } | null>(null);
   const formRef = useRef<HTMLDivElement>(null);
-  const [state, formAction] = useActionState(submitContact, null);
+  const [state, formAction] = useActionState(
+    async (_prev: { ok: boolean; message: string } | null, formData: FormData) =>
+      submitContact(formData),
+    null
+  );
 
   const current = segments.find((s) => s.id === activeSegment)!;
 
