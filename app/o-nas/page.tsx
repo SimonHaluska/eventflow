@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import About from "../components/About";
 
 export const metadata: Metadata = {
-  title: "O nás | EventFlow",
+  title: "O nás | Haka",
   description:
-    "Spoznajte tím EventFlow — Šimon Haluska a Andrea Fačkovcová. Dve expertízy, jeden kompaktný tím.",
+    "Spoznajte tím Haka — Šimon Haluska a Andrea Fačkovcová. Dve expertízy, jeden kompaktný tím.",
 };
 
 export default function ONasPage() {

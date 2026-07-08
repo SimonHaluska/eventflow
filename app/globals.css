@@ -4,6 +4,7 @@
   --background: #F5F1EA;
   --foreground: #1a1a1a;
   --charcoal: #1A1815;
+  --dark-brown: #332920;
   --gold: #C9A876;
   --gold-dark: #B8A488;
   --muted: #5c5c5c;
@@ -15,6 +16,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-charcoal: var(--charcoal);
+  --color-dark-brown: var(--dark-brown);
   --color-gold: var(--gold);
   --color-gold-dark: var(--gold-dark);
   --color-muted: var(--muted);
