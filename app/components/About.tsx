@@ -40,10 +40,10 @@ export default function About() {
     >
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold-dark">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             Kto sme
           </p>
-          <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             O nás
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted">
@@ -59,14 +59,14 @@ export default function About() {
               key={founder.name}
               className="rounded-2xl border border-gold/40 bg-background p-8"
             >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-gold bg-cream-dark/60 font-serif text-xl font-semibold text-gold-dark">
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-gold bg-cream-dark/60 font-display text-xl font-semibold text-gold">
                 {founder.initials}
               </div>
 
-              <h3 className="font-serif text-2xl font-semibold">
+              <h3 className="font-display text-2xl font-semibold">
                 {founder.name}
               </h3>
-              <p className="mt-1 text-sm tracking-wide text-gold-dark">
+              <p className="mt-1 text-sm tracking-wide text-gold">
                 {founder.role}
               </p>
               <p className="mt-4 text-sm font-medium">{founder.focus}</p>
@@ -83,7 +83,7 @@ export default function About() {
               key={value.title}
               className="rounded-2xl border border-gold/30 bg-background/60 p-6"
             >
-              <h4 className="font-serif text-lg font-semibold">{value.title}</h4>
+              <h4 className="font-display text-lg font-semibold">{value.title}</h4>
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 {value.text}
               </p>

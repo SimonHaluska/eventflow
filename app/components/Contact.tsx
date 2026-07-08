@@ -27,10 +27,10 @@ export default function Contact() {
     <section id="kontakt" className="border-t border-gold/30 px-6 py-24">
       <div className="mx-auto max-w-2xl">
         <div className="mb-12 text-center">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold-dark">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             Kontakt
           </p>
-          <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Napíšte nám
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted">
@@ -41,7 +41,7 @@ export default function Contact() {
 
         {state?.ok ? (
           <div className="rounded-2xl border border-gold bg-cream-dark/60 p-8 text-center">
-            <p className="font-serif text-xl font-semibold">Dopyt odoslaný</p>
+            <p className="font-display text-xl font-semibold">Dopyt odoslaný</p>
             <p className="mt-3 leading-relaxed text-muted">{state.message}</p>
           </div>
         ) : (
@@ -144,7 +144,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={pending}
-              className="w-full rounded-full border border-gold bg-transparent py-3 text-sm font-medium tracking-wide transition hover:border-gold-dark hover:bg-gold/20 disabled:opacity-50"
+              className="w-full rounded-full border border-gold bg-transparent py-3 text-sm font-medium tracking-wide transition hover:border-gold hover:bg-gold/15 disabled:opacity-50"
             >
               {pending ? "Odosielam..." : "Odoslať dopyt"}
             </button>

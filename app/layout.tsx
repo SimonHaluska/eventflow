@@ -1,24 +1,8 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
+import CookieBanner from "./components/CookieBanner";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Haka | Eventová agentúra",
@@ -32,14 +16,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="sk"
-      className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} h-full antialiased`}
-    >
+    <html lang="sk" className="h-full antialiased">
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,600,500,400&f[]=general-sans@700,600,500,400&display=swap"
+        />
+      </head>
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <Header />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

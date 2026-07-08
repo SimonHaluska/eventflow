@@ -34,10 +34,10 @@ export default function Services() {
     <section id="sluzby" className="border-t border-gold/30 bg-cream-dark/50 px-6 py-24">
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold-dark">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             Čo robíme
           </p>
-          <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Naše služby
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted">
@@ -52,13 +52,13 @@ export default function Services() {
               key={service.id}
               className="group rounded-2xl border border-gold/40 bg-background p-8 transition hover:border-gold hover:shadow-sm"
             >
-              <h3 className="font-serif text-2xl font-semibold">
+              <h3 className="font-display text-2xl font-semibold">
                 {service.title}
               </h3>
               <p className="mt-3 leading-relaxed text-muted">
                 {service.description}
               </p>
-              <p className="mt-6 text-sm font-medium tracking-wide text-gold-dark">
+              <p className="mt-6 text-sm font-medium tracking-wide text-gold">
                 od {service.priceFrom}
               </p>
             </article>

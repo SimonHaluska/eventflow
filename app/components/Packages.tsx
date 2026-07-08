@@ -187,10 +187,10 @@ export default function Packages() {
     <section id="baliky" className="border-t border-gold/30 px-6 py-24">
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold-dark">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             Cenník
           </p>
-          <h2 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Balíky služieb
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted">
@@ -207,7 +207,7 @@ export default function Packages() {
               onClick={() => setActiveSegment(segment.id)}
               className={`rounded-full border px-4 py-2 text-sm tracking-wide transition ${
                 activeSegment === segment.id
-                  ? "border-gold-dark bg-gold/25 text-foreground"
+                  ? "border-gold bg-gold/25 text-foreground"
                   : "border-gold/40 text-muted hover:border-gold hover:text-foreground"
               }`}
             >
@@ -226,13 +226,13 @@ export default function Packages() {
                   : "border-gold/40 bg-background"
               }`}
             >
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold-dark">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
                 {pkg.name}
               </p>
-              <h3 className="mt-2 font-serif text-xl font-semibold">
+              <h3 className="mt-2 font-display text-xl font-semibold">
                 {pkg.subtitle}
               </h3>
-              <p className="mt-4 font-serif text-2xl font-semibold">
+              <p className="mt-4 font-display text-2xl font-semibold">
                 {pkg.price}
               </p>
 
