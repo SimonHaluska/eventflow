@@ -10,7 +10,7 @@ const founders = [
     description:
       "Vedie projekty, kde záleží na logistike, športovom programe a koordinácii väčších akcií — od firemných turnajov po charitatívne behy.",
     initials: "ŠH",
-    photo: null,
+    photo: null as string | null,
   },
   {
     name: "Andrea Fačkovcová",
@@ -19,7 +19,7 @@ const founders = [
     description:
       "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
     initials: "AF",
-    photo: null,
+    photo: null as string | null,
   },
 ];
 
@@ -50,8 +50,6 @@ export default function About() {
     return () => clearInterval(timer);
   }, [next]);
 
-  const founder = founders[current];
-
   return (
     <section id="o-nas" className="border-t border-gold/30 px-6 py-24">
       <div className="mx-auto max-w-5xl">
@@ -71,50 +69,79 @@ export default function About() {
         </div>
 
         {/* Carousel */}
-        <div className="relative flex items-center justify-center gap-6">
+        <div className="relative flex items-center justify-center gap-4 sm:gap-8">
 
           {/* Šípka vľavo */}
           <button
             onClick={prev}
             aria-label="Predchádzajúci"
-            className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/60 transition hover:border-gold hover:text-gold"
+            className="z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/50 transition hover:border-gold hover:text-gold"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-5 w-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-4 w-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
-          {/* Karta */}
-          <div
-            key={current}
-            className="w-full max-w-sm animate-fade-in rounded-2xl border border-gold/30 bg-background p-8 text-center shadow-sm"
-          >
-            {/* Fotka / placeholder */}
-            {founder.photo ? (
-              <img
-                src={founder.photo}
-                alt={founder.name}
-                className="mx-auto mb-6 h-32 w-32 rounded-full object-cover"
-              />
-            ) : (
-              <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full border border-gold bg-gold/10 font-display text-3xl font-semibold text-gold">
-                {founder.initials}
-              </div>
-            )}
+          {/* Karty */}
+          <div className="flex w-full items-center justify-center gap-4 overflow-hidden">
+            {founders.map((founder, i) => {
+              const isActive = i === current;
+              return (
+                <div
+                  key={founder.name}
+                  onClick={() => setCurrent(i)}
+                  className={`flex-shrink-0 cursor-pointer rounded-2xl border bg-background p-6 text-center transition-all duration-500 sm:p-8 ${
+                    isActive
+                      ? "w-72 border-gold/50 shadow-lg opacity-100 scale-100 sm:w-80"
+                      : "w-52 border-gold/20 opacity-40 scale-95 sm:w-60"
+                  }`}
+                >
+                  {/* Fotka / placeholder */}
+                  {founder.photo ? (
+                    <img
+                      src={founder.photo}
+                      alt={founder.name}
+                      className={`mx-auto rounded-full object-cover transition-all duration-500 ${
+                        isActive ? "mb-5 h-28 w-28" : "mb-4 h-20 w-20"
+                      }`}
+                    />
+                  ) : (
+                    <div
+                      className={`mx-auto flex items-center justify-center rounded-full border border-gold bg-gold/10 font-display font-semibold text-gold transition-all duration-500 ${
+                        isActive ? "mb-5 h-28 w-28 text-3xl" : "mb-4 h-20 w-20 text-xl"
+                      }`}
+                    >
+                      {founder.initials}
+                    </div>
+                  )}
 
-            <h3 className="font-display text-2xl font-semibold">{founder.name}</h3>
-            <p className="mt-1 text-sm tracking-wide text-gold">{founder.role}</p>
-            <p className="mt-4 text-sm font-medium text-foreground">{founder.focus}</p>
-            <p className="mt-3 leading-relaxed text-muted">{founder.description}</p>
+                  <h3
+                    className={`font-display font-semibold transition-all duration-500 ${
+                      isActive ? "text-xl" : "text-base"
+                    }`}
+                  >
+                    {founder.name}
+                  </h3>
+                  <p className="mt-1 text-xs tracking-wide text-gold">{founder.role}</p>
+
+                  {isActive && (
+                    <>
+                      <p className="mt-4 text-sm font-medium text-foreground">{founder.focus}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted">{founder.description}</p>
+                    </>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {/* Šípka vpravo */}
           <button
             onClick={next}
             aria-label="Ďalší"
-            className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/60 transition hover:border-gold hover:text-gold"
+            className="z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/50 transition hover:border-gold hover:text-gold"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-5 w-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-4 w-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </button>
