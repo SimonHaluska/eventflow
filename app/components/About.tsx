@@ -65,6 +65,50 @@ const values = [
   },
 ];
 
+function FounderCard({ founder, position }: {
+  founder: typeof founders[0];
+  position: "left" | "center" | "right";
+}) {
+  const isCenter = position === "center";
+  return (
+    <div
+      className={`flex-shrink-0 rounded-2xl border bg-background p-6 text-center transition-all duration-500 ${
+        isCenter
+          ? "w-72 border-gold/50 opacity-100 shadow-lg sm:w-80"
+          : "w-52 border-gold/15 opacity-35 sm:w-60"
+      }`}
+      style={{ transform: isCenter ? "scale(1)" : "scale(0.92)" }}
+    >
+      {founder.photo ? (
+        <img
+          src={founder.photo}
+          alt={founder.name}
+          className={`mx-auto mb-5 rounded-full object-cover ${isCenter ? "h-28 w-28" : "h-20 w-20"}`}
+        />
+      ) : (
+        <div
+          className={`mx-auto mb-5 flex items-center justify-center rounded-full border border-gold bg-gold/10 font-display font-semibold text-gold ${
+            isCenter ? "h-28 w-28 text-3xl" : "h-20 w-20 text-xl"
+          }`}
+        >
+          {founder.initials}
+        </div>
+      )}
+
+      <h3 className={`font-display font-semibold ${isCenter ? "text-xl" : "text-base"}`}>
+        {founder.name}
+      </h3>
+      <p className="mt-1 text-xs tracking-wide text-gold">{founder.role}</p>
+      <p className={`mt-3 font-medium ${isCenter ? "text-sm text-foreground" : "text-xs text-muted"}`}>
+        {founder.focus}
+      </p>
+      <p className={`mt-2 leading-relaxed text-muted ${isCenter ? "text-sm" : "text-xs"}`}>
+        {founder.description}
+      </p>
+    </div>
+  );
+}
+
 export default function About() {
   const [current, setCurrent] = useState(0);
   const total = founders.length;
@@ -77,11 +121,13 @@ export default function About() {
     return () => clearInterval(timer);
   }, [next]);
 
+  const leftIdx = (current - 1 + total) % total;
+  const rightIdx = (current + 1) % total;
+
   return (
     <section id="o-nas" className="border-t border-gold/30 px-6 py-24">
       <div className="mx-auto max-w-5xl">
 
-        {/* Nadpis */}
         <div className="mb-16 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             Kto sme
@@ -90,15 +136,13 @@ export default function About() {
             Náš tím
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted">
-            Sme dvaja zakladatelia s odlišným, no navzájom sa dopĺňajúcim
-            zameraním. Navonok vystupujeme ako jeden kompaktný tím.
+            Sme tím s odlišným, no navzájom sa dopĺňajúcim zameraním.
+            Navonok vystupujeme ako jeden kompaktný tím.
           </p>
         </div>
 
         {/* Carousel */}
-        <div className="relative flex items-center justify-center gap-4 sm:gap-8">
-
-          {/* Šípka vľavo */}
+        <div className="flex items-center justify-center gap-3 sm:gap-5">
           <button
             onClick={prev}
             aria-label="Predchádzajúci"
@@ -109,62 +153,16 @@ export default function About() {
             </svg>
           </button>
 
-          {/* Karty */}
-          <div className="flex w-full items-center justify-center gap-4 overflow-hidden">
-            {founders.map((founder, i) => {
-              const isActive = i === current;
-              return (
-                <div
-                  key={founder.name}
-                  onClick={() => setCurrent(i)}
-                  className={`flex-shrink-0 cursor-pointer rounded-2xl border bg-background p-6 text-center transition-all duration-500 sm:p-8 ${
-                    isActive
-                      ? "w-72 border-gold/50 shadow-lg opacity-100 scale-100 sm:w-80"
-                      : "w-52 border-gold/20 opacity-40 scale-95 sm:w-60"
-                  }`}
-                >
-                  {/* Fotka / placeholder */}
-                  {founder.photo ? (
-                    <img
-                      src={founder.photo}
-                      alt={founder.name}
-                      className={`mx-auto rounded-full object-cover transition-all duration-500 ${
-                        isActive ? "mb-5 h-28 w-28" : "mb-4 h-20 w-20"
-                      }`}
-                    />
-                  ) : (
-                    <div
-                      className={`mx-auto flex items-center justify-center rounded-full border border-gold bg-gold/10 font-display font-semibold text-gold transition-all duration-500 ${
-                        isActive ? "mb-5 h-28 w-28 text-3xl" : "mb-4 h-20 w-20 text-xl"
-                      }`}
-                    >
-                      {founder.initials}
-                    </div>
-                  )}
-
-                  <h3
-                    className={`font-display font-semibold transition-all duration-500 ${
-                      isActive ? "text-xl" : "text-base"
-                    }`}
-                  >
-                    {founder.name}
-                  </h3>
-                  <p className="mt-1 text-xs tracking-wide text-gold">{founder.role}</p>
-
-                  <div
-                    className={`overflow-hidden transition-all duration-500 ${
-                      isActive ? "mt-4 max-h-40 opacity-100" : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <p className="text-sm font-medium text-foreground">{founder.focus}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">{founder.description}</p>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="flex items-center justify-center gap-4 overflow-hidden">
+            <button onClick={prev} className="focus:outline-none">
+              <FounderCard founder={founders[leftIdx]} position="left" />
+            </button>
+            <FounderCard founder={founders[current]} position="center" />
+            <button onClick={next} className="focus:outline-none">
+              <FounderCard founder={founders[rightIdx]} position="right" />
+            </button>
           </div>
 
-          {/* Šípka vpravo */}
           <button
             onClick={next}
             aria-label="Ďalší"
