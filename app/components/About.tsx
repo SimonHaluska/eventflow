@@ -59,7 +59,7 @@ export default function About() {
               key={founder.name}
               className="rounded-2xl border border-gold/40 bg-background p-8"
             >
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-gold bg-cream-dark/60 font-display text-xl font-semibold text-gold">
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-gold bg-gold/10 font-display text-xl font-semibold text-gold">
                 {founder.initials}
               </div>
 

@@ -40,7 +40,7 @@ export default function Contact() {
         </div>
 
         {state?.ok ? (
-          <div className="rounded-2xl border border-gold bg-cream-dark/60 p-8 text-center">
+          <div className="rounded-2xl border border-gold bg-gold/[0.05] p-8 text-center">
             <p className="font-display text-xl font-semibold">Dopyt odoslaný</p>
             <p className="mt-3 leading-relaxed text-muted">{state.message}</p>
           </div>

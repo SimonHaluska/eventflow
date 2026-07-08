@@ -222,8 +222,8 @@ export default function Packages() {
               key={pkg.name}
               className={`flex flex-col rounded-2xl border p-8 ${
                 pkg.highlighted
-                  ? "border-gold bg-cream-dark/60 shadow-sm"
-                  : "border-gold/40 bg-background"
+                  ? "border-gold bg-gold/[0.06] shadow-sm"
+                  : "border-gold/30 bg-background"
               }`}
             >
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
