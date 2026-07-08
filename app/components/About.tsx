@@ -124,12 +124,14 @@ export default function About() {
                   </h3>
                   <p className="mt-1 text-xs tracking-wide text-gold">{founder.role}</p>
 
-                  {isActive && (
-                    <>
-                      <p className="mt-4 text-sm font-medium text-foreground">{founder.focus}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-muted">{founder.description}</p>
-                    </>
-                  )}
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ${
+                      isActive ? "mt-4 max-h-40 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <p className="text-sm font-medium text-foreground">{founder.focus}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">{founder.description}</p>
+                  </div>
                 </div>
               );
             })}
