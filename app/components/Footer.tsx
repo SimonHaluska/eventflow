@@ -63,10 +63,10 @@ export default function Footer() {
       <div className="mx-auto max-w-5xl space-y-10">
 
         {/* Hlavná mriežka — 4 stĺpce na desktope */}
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-4">
+        <div className="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-4">
 
           {/* Logo + popis + sociálne siete */}
-          <div className="self-start sm:col-span-1">
+          <div className="self-start">
             <Link href="/" className="flex items-start gap-3">
               <Image
                 src="/logo.png"
