@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Partners from "./components/Partners";
+import Reveal from "./components/Reveal";
 import Testimonials from "./components/Testimonials";
 
 export default function Home() {
@@ -24,7 +25,8 @@ export default function Home() {
         </div>
 
         <h1 className="animate-fade-up delay-300 font-display max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
-          Od konceptu po posledného hosťa
+          Od konceptu po{" "}
+          <span className="text-gold-gradient">posledného hosťa</span>
         </h1>
 
         <p className="animate-fade-up delay-500 mt-6 max-w-xl text-lg leading-relaxed text-muted">
