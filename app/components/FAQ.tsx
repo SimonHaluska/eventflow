@@ -1,46 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import type { Dictionary } from "../[lang]/dictionaries";
 
-const faqs = [
-  {
-    question: "Ako prebieha platba a záloha?",
-    answer:
-      "Po podpise zmluvy vystavíme zálohovú faktúru vo výške 50 % z celkovej ceny. Zvyšok (doplatok) fakturujeme po úspešnej realizácii eventu so splatnosťou 7–14 dní. Pri väčších projektoch nad 5 000 € používame trojfázový model: 40 % pri podpise, 40 % mesiac pred akciou, 20 % po realizácii.",
-  },
-  {
-    question: "Čo je zahrnuté v cene balíka a čo sa účtuje zvlášť?",
-    answer:
-      "Cena balíka pokrýva agentúrnu odmenu (náš čas, koordináciu a manažment). Zvlášť sa účtujú: náklady na dodávateľov (catering, technika, priestory), cestovné nad rámec sídla (0,40–0,50 €/km), ubytovanie personálu pri akciách nad 100 km, a agentúrna provízia 10–15 % pri balíkoch Standard a Premium.",
-  },
-  {
-    question: "Aké sú storno podmienky?",
-    answer:
-      "Viac ako 30 dní pred akciou: vraciame celú zálohu (okrem nevratných platieb dodávateľom). 15–30 dní: záloha prepadá na pokrytie doterajšej práce. 8–14 dní: storno poplatok 75 % z celkovej ceny. 7 a menej dní: 100 % z celkovej ceny — v tomto čase máme všetko nakúpené a personál zarezervovaný.",
-  },
-  {
-    question: "Čo ak príde zlé počasie pri outdoor akcii?",
-    answer:
-      "V zmluve pre outdoor akcie vždy definujeme postup: alternatívny interiérový variant alebo posun termínu za vopred dohodnutý administratívny príplatok. Nikdy nenecháme klienta bez riešenia.",
-  },
-  {
-    question: "Koľko ľudí potrebujem na teambuilding?",
-    answer:
-      "Balík Standard pre teambuildingy je nastavený na minimálne 15–20 účastníkov. Pre menšie skupiny odporúčame balík Basic, kde realizujete program na niekoľko hodín. Maximálny počet účastníkov nie je obmedzený.",
-  },
-  {
-    question: "Môžete organizovať akcie mimo Bratislavy?",
-    answer:
-      "Áno, organizujeme akcie po celom Slovensku. Pri výjazdoch mimo sídla účtujeme cestovné 0,40–0,50 €/km. Pri akciách nad 100 km od sídla alebo s neskorým programom hradí klient aj ubytovanie a stravné pre náš tím.",
-  },
-  {
-    question: "Ako rýchlo sa mi ozvete po odoslaní dopytu?",
-    answer:
-      "Do 24 hodín v pracovných dňoch. Na kľúčové úvodné stretnutia chodíme vždy spoločne — Šimon aj Andrea — aby ste od prvej chvíle videli celé zázemie agentúry.",
-  },
-];
+type Props = { dict: Dictionary["faq"] };
 
-export default function FAQ() {
+export default function FAQ({ dict }: Props) {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
@@ -48,18 +13,16 @@ export default function FAQ() {
       <div className="mx-auto max-w-3xl">
         <div className="mb-12 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
-            Časté otázky
+            {dict.label}
           </p>
           <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            FAQ
+            {dict.title}
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted">
-            Odpovede na otázky, ktoré dostávame najčastejšie.
-          </p>
+          <p className="mx-auto mt-4 max-w-xl text-muted">{dict.subtitle}</p>
         </div>
 
         <div className="space-y-2">
-          {faqs.map((faq, i) => (
+          {dict.items.map((faq, i) => (
             <div
               key={i}
               className="rounded-2xl border border-gold/30 bg-background"

@@ -1,73 +1,18 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import type { Dictionary } from "../[lang]/dictionaries";
 import Reveal from "./Reveal";
 
-const founders = [
-  {
-    name: "Šimon Haluska",
-    role: "Spoluzakladateľ & konateľ",
-    focus: "Športové podujatia a firemné teambuildingy",
-    description:
-      "Vedie projekty, kde záleží na logistike, športovom programe a koordinácii väčších akcií — od firemných turnajov po charitatívne behy.",
-    initials: "ŠH",
-    photo: null as string | null,
-  },
-  {
-    name: "Andrea Fačkovcová",
-    role: "Spoluzakladateľka & konateľka",
-    focus: "Súkromné a zvieracie oslavy",
-    description:
-      "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
-    initials: "AF",
-    photo: null as string | null,
-  },
-  {
-    name: "Veronika Tóthová",
-    role: "Spoluzakladateľka & konateľka",
-    focus: "Súkromné a zvieracie oslavy",
-    description:
-      "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
-    initials: "VT",
-    photo: null as string | null,
-  },
-  {
-    name: "Lucia Pazderová",
-    role: "Spoluzakladateľka & konateľka",
-    focus: "Súkromné a zvieracie oslavy",
-    description:
-      "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
-    initials: "LP",
-    photo: null as string | null,
-  },
-  {
-    name: "Petra Filipovičová",
-    role: "Spoluzakladateľka & konateľka",
-    focus: "Súkromné a zvieracie oslavy",
-    description:
-      "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
-    initials: "PF",
-    photo: null as string | null,
-  },
-];
+type Props = { dict: Dictionary["about"] };
 
-const values = [
-  {
-    title: "Jeden tím, jeden brand",
-    text: "Na kľúčové stretnutia s klientmi chodíme vždy spolu. Vidíte celé zázemie agentúry od prvej chvíle.",
-  },
-  {
-    title: "Dve expertízy, jeden cieľ",
-    text: "Šport a oslavy sa dopĺňajú. Každú zákazku interne vedie ten, kto má v danom segmente hlbšiu skúsenosť.",
-  },
-  {
-    title: "Plán B pre každého dodávateľa",
-    text: "Pre kľúčové pozície máme vždy záložného partnera. Minimalizujeme riziko, že niečo pokazí váš deň.",
-  },
-];
+type Founder = Dictionary["about"]["founders"][number];
 
-function FounderCard({ founder, position }: {
-  founder: typeof founders[0];
+function FounderCard({
+  founder,
+  position,
+}: {
+  founder: Founder;
   position: "left" | "center" | "right";
 }) {
   const isCenter = position === "center";
@@ -80,21 +25,13 @@ function FounderCard({ founder, position }: {
       }`}
       style={{ transform: isCenter ? "scale(1)" : "scale(0.92)" }}
     >
-      {founder.photo ? (
-        <img
-          src={founder.photo}
-          alt={founder.name}
-          className={`mx-auto mb-5 rounded-full object-cover ${isCenter ? "h-28 w-28" : "h-20 w-20"}`}
-        />
-      ) : (
-        <div
-          className={`mx-auto mb-5 flex items-center justify-center rounded-full border border-gold bg-gold/10 font-display font-semibold text-gold ${
-            isCenter ? "h-28 w-28 text-3xl" : "h-20 w-20 text-xl"
-          }`}
-        >
-          {founder.initials}
-        </div>
-      )}
+      <div
+        className={`mx-auto mb-5 flex items-center justify-center rounded-full border border-gold bg-gold/10 font-display font-semibold text-gold ${
+          isCenter ? "h-28 w-28 text-3xl" : "h-20 w-20 text-xl"
+        }`}
+      >
+        {founder.initials}
+      </div>
 
       <h3 className={`font-display font-semibold ${isCenter ? "text-xl" : "text-base"}`}>
         {founder.name}
@@ -110,9 +47,9 @@ function FounderCard({ founder, position }: {
   );
 }
 
-export default function About() {
+export default function About({ dict }: Props) {
   const [current, setCurrent] = useState(0);
-  const total = founders.length;
+  const total = dict.founders.length;
 
   const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
   const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
@@ -128,25 +65,20 @@ export default function About() {
   return (
     <section id="o-nas" className="border-t border-gold/30 px-6 py-24">
       <div className="mx-auto max-w-5xl">
-
         <div className="mb-16 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
-            Kto sme
+            {dict.label}
           </p>
           <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            Náš tím
+            {dict.title}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted">
-            Sme tím s odlišným, no navzájom sa dopĺňajúcim zameraním.
-            Navonok vystupujeme ako jeden kompaktný tím.
-          </p>
+          <p className="mx-auto mt-4 max-w-2xl text-muted">{dict.subtitle}</p>
         </div>
 
-        {/* Carousel */}
         <div className="flex items-center justify-center gap-3 sm:gap-5">
           <button
             onClick={prev}
-            aria-label="Predchádzajúci"
+            aria-label={dict.prevLabel}
             className="z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/50 transition hover:border-gold hover:text-gold"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-4 w-4">
@@ -156,17 +88,17 @@ export default function About() {
 
           <div className="flex items-center justify-center gap-4 overflow-hidden">
             <button onClick={prev} className="focus:outline-none">
-              <FounderCard founder={founders[leftIdx]} position="left" />
+              <FounderCard founder={dict.founders[leftIdx]} position="left" />
             </button>
-            <FounderCard founder={founders[current]} position="center" />
+            <FounderCard founder={dict.founders[current]} position="center" />
             <button onClick={next} className="focus:outline-none">
-              <FounderCard founder={founders[rightIdx]} position="right" />
+              <FounderCard founder={dict.founders[rightIdx]} position="right" />
             </button>
           </div>
 
           <button
             onClick={next}
-            aria-label="Ďalší"
+            aria-label={dict.nextLabel}
             className="z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/50 transition hover:border-gold hover:text-gold"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-4 w-4">
@@ -175,13 +107,12 @@ export default function About() {
           </button>
         </div>
 
-        {/* Bodky */}
         <div className="mt-6 flex justify-center gap-2">
-          {founders.map((_, i) => (
+          {dict.founders.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              aria-label={`Prejsť na ${founders[i].name}`}
+              aria-label={`${dict.founders[i].name}`}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 i === current ? "w-6 bg-gold" : "w-1.5 bg-gold/30"
               }`}
@@ -189,9 +120,8 @@ export default function About() {
           ))}
         </div>
 
-        {/* Hodnoty */}
         <div className="mt-20 grid gap-6 sm:grid-cols-3">
-          {values.map((value, i) => (
+          {dict.values.map((value, i) => (
             <Reveal key={value.title} delay={i * 100} direction="up">
               <div className="rounded-2xl border border-gold/30 bg-cream-dark p-6">
                 <h4 className="font-display text-lg font-semibold">{value.title}</h4>
@@ -200,7 +130,6 @@ export default function About() {
             </Reveal>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "home": {
+      "title": "Momentum Events | Eventová agentúra",
+      "description": "Organizujeme športové podujatia, teambuildingy a súkromné oslavy. Od konceptu po posledného hosťa."
+    },
+    "contact": {
+      "title": "Kontakt | Momentum Events",
+      "description": "Napíšte nám a ozveme sa čo najskôr. Nezáväzná konzultácia je zadarmo."
+    },
+    "about": {
+      "title": "O nás | Momentum Events",
+      "description": "Spoznajte tím Momentum Events. Dve expertízy, jeden kompaktný tím."
+    },
+    "pricing": {
+      "title": "Cenník | Momentum Events",
+      "description": "Tri balíky služieb pre každý segment — súkromné oslavy, zvieracie eventy, teambuildingy a športové podujatia."
+    },
+    "portfolio": {
+      "title": "Portfólio | Momentum Events",
+      "description": "Galéria realizovaných eventov — oslavy, teambuildingy a športové podujatia."
+    },
+    "howItWorks": {
+      "title": "Ako to funguje | Momentum Events",
+      "description": "Šesť krokov od prvého kontaktu po úspešnú realizáciu eventu."
+    },
+    "privacy": {
+      "title": "Ochrana osobných údajov | Momentum Events",
+      "description": "Zásady ochrany osobných údajov agentúry Momentum Events."
+    }
+  },
+  "header": {
+    "logoAlt": "Logo Momentum Events",
+    "nav": {
+      "pricing": "Cenník",
+      "howItWorks": "Ako to funguje",
+      "portfolio": "Portfólio",
+      "about": "O nás",
+      "contact": "Kontakt"
+    },
+    "cta": "Konzultácia",
+    "menuOpen": "Otvoriť menu",
+    "menuClose": "Zavrieť menu"
+  },
+  "footer": {
+    "description": "Eventová agentúra so zameraním na šport, teambuildingy a súkromné oslavy.",
+    "followUs": "Sledujte nás",
+    "navTitle": "Navigácia",
+    "nav": {
+      "pricing": "Cenník",
+      "howItWorks": "Ako to funguje",
+      "portfolio": "Portfólio",
+      "about": "O nás",
+      "contact": "Kontakt"
+    },
+    "segmentsTitle": "Segmenty",
+    "segments": [
+      { "label": "Súkromné oslavy", "slug": "/sluzby" },
+      { "label": "Zvieracie oslavy", "slug": "/sluzby" },
+      { "label": "Teambuildingy", "slug": "/sluzby" },
+      { "label": "Športové podujatia", "slug": "/sluzby" }
+    ],
+    "locationTitle": "Kde nás nájdete",
+    "copyright": "Momentum Events. Všetky práva vyhradené."
+  },
+  "home": {
+    "heroTitle": "Od konceptu po",
+    "heroTitleHighlight": "posledného hosťa",
+    "heroSubtitle": "Športové podujatia, firemné teambuildingy a súkromné oslavy — vrátane pet-friendly eventov.",
+    "heroCta": "Naše služby",
+    "heroCtaSecondary": "Kontaktujte nás"
+  },
+  "partners": {
+    "label": "Spolupráce",
+    "title": "Firmy, s ktorými sme spolupracovali",
+    "subtitle": "Logá partnerov a klientov doplníme po realizácii prvých projektov."
+  },
+  "testimonials": {
+    "label": "Referencie",
+    "title": "Čo hovoria naši klienti",
+    "subtitle": "Referencie doplníme po realizácii prvých akcií."
+  },
+  "about": {
+    "label": "Kto sme",
+    "title": "Náš tím",
+    "subtitle": "Sme tím s odlišným, no navzájom sa dopĺňajúcim zameraním. Navonok vystupujeme ako jeden kompaktný tím.",
+    "prevLabel": "Predchádzajúci",
+    "nextLabel": "Ďalší",
+    "founders": [
+      {
+        "name": "Šimon Haluska",
+        "role": "Spoluzakladateľ & konateľ",
+        "focus": "Športové podujatia a firemné teambuildingy",
+        "description": "Vedie projekty, kde záleží na logistike, športovom programe a koordinácii väčších akcií — od firemných turnajov po charitatívne behy.",
+        "initials": "ŠH"
+      },
+      {
+        "name": "Andrea Fačkovcová",
+        "role": "Spoluzakladateľka & konateľka",
+        "focus": "Súkromné a zvieracie oslavy",
+        "description": "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+        "initials": "AF"
+      },
+      {
+        "name": "Veronika Tóthová",
+        "role": "Spoluzakladateľka & konateľka",
+        "focus": "Súkromné a zvieracie oslavy",
+        "description": "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+        "initials": "VT"
+      },
+      {
+        "name": "Lucia Pazderová",
+        "role": "Spoluzakladateľka & konateľka",
+        "focus": "Súkromné a zvieracie oslavy",
+        "description": "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+        "initials": "LP"
+      },
+      {
+        "name": "Petra Filipovičová",
+        "role": "Spoluzakladateľka & konateľka",
+        "focus": "Súkromné a zvieracie oslavy",
+        "description": "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+        "initials": "PF"
+      }
+    ],
+    "values": [
+      {
+        "title": "Jeden tím, jeden brand",
+        "text": "Na kľúčové stretnutia s klientmi chodíme vždy spolu. Vidíte celé zázemie agentúry od prvej chvíle."
+      },
+      {
+        "title": "Dve expertízy, jeden cieľ",
+        "text": "Šport a oslavy sa dopĺňajú. Každú zákazku interne vedie ten, kto má v danom segmente hlbšiu skúsenosť."
+      },
+      {
+        "title": "Plán B pre každého dodávateľa",
+        "text": "Pre kľúčové pozície máme vždy záložného partnera. Minimalizujeme riziko, že niečo pokazí váš deň."
+      }
+    ]
+  },
+  "services": {
+    "label": "Čo robíme",
+    "title": "Naše služby",
+    "subtitle": "Štyri segmenty, tri balíky v každom. Vyberte si úroveň, ktorá vám sedí — od koordinácie v deň D po full-service na kľúč.",
+    "items": [
+      {
+        "id": "oslavy",
+        "title": "Súkromné oslavy",
+        "description": "Narodeniny, výročia a rodinné oslavy. Od jednoduchej koordinácie po kompletnú realizáciu na kľúč."
+      },
+      {
+        "id": "pet",
+        "title": "Zvieracie oslavy",
+        "description": "Pet-friendly oslavy pre vaše štvornohé priateľe. Agility, pet pekárne a zábava pre celú psíčiu partiu."
+      },
+      {
+        "id": "teambuilding",
+        "title": "Teambuildingy",
+        "description": "Firemné akcie, športové programy a víkendové eventy. Posilnite tím zážitkom, nie prezentáciou."
+      },
+      {
+        "id": "sport",
+        "title": "Športové podujatia",
+        "description": "Behy, turnaje, firemné športové dni a charitatívne akcie. Od štartu po cieľ — my to odriadime."
+      }
+    ]
+  },
+  "packages": {
+    "label": "Cenník",
+    "title": "Balíky služieb",
+    "subtitle": "Vyberte segment a porovnajte tri úrovne starostlivosti. Presná cena závisí od rozsahu akcie — radi pripravíme nezáväznú ponuku.",
+    "note": "Všetky ceny sú orientačné. Pri objednávke vystavujeme zálohovú faktúru na blokovanie termínu.",
+    "interested": "Mám záujem",
+    "inquiryLabel": "Dopyt",
+    "inquiryPackage": "balík",
+    "inquirySubtitle": "Vyplňte formulár a ozveme sa vám čo najskôr, ideálne ešte v ten istý deň.",
+    "sent": "Dopyt odoslaný",
+    "form": {
+      "name": "Meno *",
+      "email": "E-mail *",
+      "phone": "Telefón",
+      "message": "Správa *",
+      "messagePlaceholder": "Popíšte váš event — dátum, počet hostí, miesto...",
+      "submit": "Odoslať dopyt",
+      "cancel": "Zrušiť"
+    },
+    "segments": [
+      {
+        "id": "oslavy",
+        "label": "Súkromné oslavy",
+        "packages": [
+          {
+            "name": "Basic",
+            "subtitle": "Koordinácia v deň D",
+            "price": "150 – 200 €",
+            "features": [
+              "Oboznámenie sa s harmonogramom 1–2 týždne pred akciou",
+              "Osobná prítomnosť na mieste (4–6 hodín)",
+              "Koordinácia dodávateľov a vítanie hostí",
+              "Riešenie nečakaných situácií v deň D"
+            ]
+          },
+          {
+            "name": "Standard",
+            "subtitle": "Plánovanie + koordinácia",
+            "price": "300 – 400 €",
+            "highlighted": true,
+            "features": [
+              "Všetko z balíka Basic",
+              "Kreatívny koncept a detailný harmonogram",
+              "Odporúčanie a komunikácia s dodávateľmi",
+              "Obhliadka priestorov pred podujatím"
+            ]
+          },
+          {
+            "name": "Premium",
+            "subtitle": "Full-service na kľúč",
+            "price": "od 600 € + dodávatelia",
+            "features": [
+              "Všetko z balíka Standard",
+              "Zastrešenie všetkých dodávateľov za vás",
+              "Pozvánky, výzdoba, catering — komplet",
+              "Transparentné vedenie rozpočtu a fakturácia"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pet",
+        "label": "Zvieracie oslavy",
+        "packages": [
+          {
+            "name": "Basic",
+            "subtitle": "Koordinácia v deň D",
+            "price": "100 – 120 €",
+            "features": [
+              "Pomoc na mieste počas oslavy",
+              "Organizácia zvieracích súťaží",
+              "Koordinácia krájania torty a programu",
+              "Riešenie situácií v deň D"
+            ]
+          },
+          {
+            "name": "Standard",
+            "subtitle": "Plánovanie + koordinácia",
+            "price": "200 – 250 €",
+            "highlighted": true,
+            "features": [
+              "Všetko z balíka Basic",
+              "Pet-friendly výzdoba na mieru",
+              "Zabezpečenie pet pekárne a doplnkov",
+              "Pozvánky pre ostatných psíčkarov"
+            ]
+          },
+          {
+            "name": "Premium",
+            "subtitle": "Full-service na kľúč",
+            "price": "od 400 € + dodávatelia",
+            "features": [
+              "Všetko z balíka Standard",
+              "Prenájom cvičáku alebo parku",
+              "Profi fotograf zvierat a agility prekážky",
+              "Darčekové balíčky pre hostí"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teambuilding",
+        "label": "Teambuildingy",
+        "packages": [
+          {
+            "name": "Basic",
+            "subtitle": "Koordinácia v deň D",
+            "price": "300 – 400 €",
+            "features": [
+              "Realizácia športového alebo zábavného programu",
+              "Koordinácia aktivít na mieste",
+              "Ideálne ak máte chatu a catering vybavené",
+              "Program na niekoľko hodín"
+            ]
+          },
+          {
+            "name": "Standard",
+            "subtitle": "Plánovanie + koordinácia",
+            "price": "20 – 30 € / osoba",
+            "highlighted": true,
+            "features": [
+              "Všetko z balíka Basic",
+              "Minimálne 15–20 účastníkov",
+              "Manažment, pomôcky na aktivity a koordinácia",
+              "Ubytovanie a strava sa fakturujú zvlášť"
+            ]
+          },
+          {
+            "name": "Premium",
+            "subtitle": "Full-service na kľúč",
+            "price": "45 – 60+ € / osoba",
+            "features": [
+              "Všetko z balíka Standard",
+              "Celovíkendový program s ubytovaním",
+              "Prenájom rezortu, večerný DJ a branding",
+              "Marža 10–15 % na služby dodávateľov"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sport",
+        "label": "Športové podujatia",
+        "packages": [
+          {
+            "name": "Basic",
+            "subtitle": "Koordinácia v deň D",
+            "price": "400 – 500 €",
+            "features": [
+              "Odriadenie štartu a cieľa na podujatí",
+              "Koordinácia na mieste v deň akcie",
+              "Ideálne pre existujúce lokálne behy",
+              "Osobná prítomnosť nášho tímu"
+            ]
+          },
+          {
+            "name": "Standard",
+            "subtitle": "Plánovanie + koordinácia",
+            "price": "800 – 1 200 €",
+            "highlighted": true,
+            "features": [
+              "Všetko z balíka Basic",
+              "Harmonogram pre turnaj alebo lokálny beh",
+              "Zabezpečenie rozhodcov a registrácie",
+              "Obhliadka trate a logistická príprava"
+            ]
+          },
+          {
+            "name": "Premium",
+            "subtitle": "Full-service na kľúč",
+            "price": "1 500 – 2 500+ €",
+            "features": [
+              "Všetko z balíka Standard",
+              "Marketing, online registrácie a stavba tratí",
+              "Záchranná služba, pódium a medaily na mieru",
+              "Kompletná administratíva a povolenia"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "label": "Časté otázky",
+    "title": "FAQ",
+    "subtitle": "Odpovede na otázky, ktoré dostávame najčastejšie.",
+    "items": [
+      {
+        "question": "Ako prebieha platba a záloha?",
+        "answer": "Po podpise zmluvy vystavíme zálohovú faktúru vo výške 50 % z celkovej ceny. Zvyšok (doplatok) fakturujeme po úspešnej realizácii eventu so splatnosťou 7–14 dní. Pri väčších projektoch nad 5 000 € používame trojfázový model: 40 % pri podpise, 40 % mesiac pred akciou, 20 % po realizácii."
+      },
+      {
+        "question": "Čo je zahrnuté v cene balíka a čo sa účtuje zvlášť?",
+        "answer": "Cena balíka pokrýva agentúrnu odmenu (náš čas, koordináciu a manažment). Zvlášť sa účtujú: náklady na dodávateľov (catering, technika, priestory), cestovné nad rámec sídla (0,40–0,50 €/km), ubytovanie personálu pri akciách nad 100 km, a agentúrna provízia 10–15 % pri balíkoch Standard a Premium."
+      },
+      {
+        "question": "Aké sú storno podmienky?",
+        "answer": "Viac ako 30 dní pred akciou: vraciame celú zálohu (okrem nevratných platieb dodávateľom). 15–30 dní: záloha prepadá na pokrytie doterajšej práce. 8–14 dní: storno poplatok 75 % z celkovej ceny. 7 a menej dní: 100 % z celkovej ceny — v tomto čase máme všetko nakúpené a personál zarezervovaný."
+      },
+      {
+        "question": "Čo ak príde zlé počasie pri outdoor akcii?",
+        "answer": "V zmluve pre outdoor akcie vždy definujeme postup: alternatívny interiérový variant alebo posun termínu za vopred dohodnutý administratívny príplatok. Nikdy nenecháme klienta bez riešenia."
+      },
+      {
+        "question": "Koľko ľudí potrebujem na teambuilding?",
+        "answer": "Balík Standard pre teambuildingy je nastavený na minimálne 15–20 účastníkov. Pre menšie skupiny odporúčame balík Basic, kde realizujete program na niekoľko hodín. Maximálny počet účastníkov nie je obmedzený."
+      },
+      {
+        "question": "Môžete organizovať akcie mimo Bratislavy?",
+        "answer": "Áno, organizujeme akcie po celom Slovensku. Pri výjazdoch mimo sídla účtujeme cestovné 0,40–0,50 €/km. Pri akciách nad 100 km od sídla alebo s neskorým programom hradí klient aj ubytovanie a stravné pre náš tím."
+      },
+      {
+        "question": "Ako rýchlo sa mi ozvete po odoslaní dopytu?",
+        "answer": "Do 24 hodín v pracovných dňoch. Na kľúčové úvodné stretnutia chodíme vždy spoločne, aby ste od prvej chvíle videli celé zázemie agentúry."
+      }
+    ]
+  },
+  "howItWorks": {
+    "label": "Proces",
+    "title": "Ako to funguje",
+    "subtitle": "Od prvého kontaktu po posledného hosťa — šesť krokov, ktoré nás spájajú.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Dopyt a konzultácia",
+        "description": "Napíšte nám alebo zavolajte. Prvá konzultácia je vždy zadarmo a nezáväzná. Spoločne zistíme, čo váš event potrebuje."
+      },
+      {
+        "number": "02",
+        "title": "Výber balíka a zmluva",
+        "description": "Na základe vašich predstáv a rozpočtu navrhneme vhodný balík. Po odsúhlasení podpíšeme zmluvu s jasnými podmienkami."
+      },
+      {
+        "number": "03",
+        "title": "Záloha a blokácia termínu",
+        "description": "Po podpise zmluvy vystavíme zálohovú faktúru podľa dohodnutého rozpočtu. Záloha záväzne blokuje váš termín a my začíname prípravy."
+      },
+      {
+        "number": "04",
+        "title": "Príprava a koordinácia",
+        "description": "Zabezpečíme priestory, dodávateľov, harmonogram a všetku logistiku. Vy ste informovaní, no nemusíte riešiť detaily."
+      },
+      {
+        "number": "05",
+        "title": "Deň D — realizácia",
+        "description": "Náš tím je osobne prítomný počas celého eventu. Riadime program, koordinujeme dodávateľov a riešime všetko za vás."
+      },
+      {
+        "number": "06",
+        "title": "Doplatok a vyhodnotenie",
+        "description": "Po úspešnej akcii vystavíme doplatkovú faktúru. Radi si vypočujeme váš feedback — každý event nás posúva ďalej."
+      }
+    ]
+  },
+  "portfolio": {
+    "label": "Naša práca",
+    "title": "Portfólio",
+    "subtitle": "Fotky z realizovaných akcií doplníme čoskoro. Sledujte nás na sociálnych sieťach, kde zdieľame zákulisie každého eventu.",
+    "contactText": "Fotky pripravujeme — ozvite sa nám medzitým priamo.",
+    "contactLink": "Kontaktovať nás",
+    "photoSoon": "Fotka čoskoro",
+    "prevLabel": "Predchádzajúci",
+    "nextLabel": "Ďalší",
+    "itemLabel": "Položka",
+    "items": [
+      { "id": 1, "category": "Súkromné oslavy", "label": "Narodeninová oslava" },
+      { "id": 2, "category": "Zvieracie oslavy", "label": "Pet párty" },
+      { "id": 3, "category": "Teambuilding", "label": "Firemný víkend" },
+      { "id": 4, "category": "Športové podujatia", "label": "Charitatívny beh" },
+      { "id": 5, "category": "Teambuilding", "label": "Outdoor teambuilding" },
+      { "id": 6, "category": "Súkromné oslavy", "label": "Výročie svadby" }
+    ]
+  },
+  "contact": {
+    "label": "Kontakt",
+    "title": "Napíšte nám",
+    "subtitle": "Vyplňte formulár a ozveme sa vám čo najskôr, ideálne ešte v ten istý deň. Nezáväzná konzultácia je vždy zadarmo.",
+    "sent": "Dopyt odoslaný",
+    "form": {
+      "name": "Meno *",
+      "email": "E-mail *",
+      "phone": "Telefón",
+      "eventType": "Typ eventu",
+      "package": "Balík",
+      "message": "Správa *",
+      "namePlaceholder": "Vaše meno",
+      "emailPlaceholder": "vas@email.sk",
+      "phonePlaceholder": "+421 ...",
+      "messagePlaceholder": "Popíšte váš event — dátum, počet hostí, predstavy...",
+      "submit": "Odoslať dopyt",
+      "submitting": "Odosielam...",
+      "segments": ["Súkromné oslavy", "Zvieracie oslavy", "Teambuildingy", "Športové podujatia", "Neviem / chcem poradiť"],
+      "packages": ["Basic", "Standard", "Premium", "Neviem"]
+    }
+  },
+  "cookie": {
+    "text": "Táto stránka používa cookies na zlepšenie vášho zážitku. Viac info v",
+    "privacyLink": "zásadách ochrany údajov",
+    "accept": "Prijať",
+    "decline": "Odmietnuť"
+  },
+  "privacy": {
+    "breadcrumb": "Právne informácie",
+    "title": "Ochrana osobných údajov",
+    "since": "Platné od: 2026",
+    "sections": [
+      {
+        "heading": "1. Prevádzkovateľ",
+        "content": "Prevádzkovateľom osobných údajov je spoločnosť Momentum Events, s.r.o. (ďalej len 'Momentum Events' alebo 'my'). Kontakt: info@momentumevents.sk"
+      },
+      {
+        "heading": "2. Aké údaje zbierame",
+        "intro": "Prostredníctvom kontaktného formulára na tejto stránke zbierame:",
+        "list": ["Meno a priezvisko", "E-mailová adresa", "Telefónne číslo (voliteľné)", "Typ požadovaného eventu a správa"]
+      },
+      {
+        "heading": "3. Účel spracovania",
+        "content": "Vaše údaje spracúvame výhradne za účelom odpovede na váš dopyt a prípadnej prípravy ponuky. Bez vášho súhlasu vám nebudeme zasielať marketingové materiály."
+      },
+      {
+        "heading": "4. Cookies",
+        "content": "Táto stránka používa technické cookies nevyhnutné pre fungovanie webu. Analytické cookies (napr. Google Analytics) používame len s vaším súhlasom, ktorý môžete udeliť alebo odmietnuť v banneri pri prvej návšteve."
+      },
+      {
+        "heading": "5. Zdieľanie údajov",
+        "content": "Vaše osobné údaje nepredávame ani neposkytujeme tretím stranám na marketingové účely. Môžeme ich zdieľať s dodávateľmi, ktorých priamo oslovíme v súvislosti s vaším dopytom — vždy len v nevyhnutnom rozsahu."
+      },
+      {
+        "heading": "6. Doba uchovávania",
+        "content": "Osobné údaje uchovávame po dobu nevyhnutnú na vybavenie dopytu, prípadne po dobu plnenia zmluvy a zákonných povinností (max. 5 rokov)."
+      },
+      {
+        "heading": "7. Vaše práva",
+        "intro": "Máte právo na:",
+        "list": [
+          "Prístup k vašim osobným údajom",
+          "Opravu nesprávnych údajov",
+          "Vymazanie údajov (právo na zabudnutie)",
+          "Obmedzenie spracovania",
+          "Prenositeľnosť údajov",
+          "Podanie sťažnosti na Úrad na ochranu osobných údajov SR"
+        ],
+        "contact": "Pre uplatnenie práv nás kontaktujte na info@momentumevents.sk."
+      },
+      {
+        "heading": "8. Zmeny dokumentu",
+        "content": "Tieto zásady môžeme priebežne aktualizovať. O podstatných zmenách vás informujeme prostredníctvom webu."
+      }
+    ]
+  }
+}

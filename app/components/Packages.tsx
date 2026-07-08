@@ -2,190 +2,19 @@
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import { submitContact } from "../actions/contact";
+import type { Dictionary } from "../[lang]/dictionaries";
 import Reveal from "./Reveal";
 
-type PackageTier = {
-  name: string;
-  subtitle: string;
-  price: string;
-  features: string[];
-  highlighted?: boolean;
-};
+type Props = { dict: Dictionary["packages"] };
 
-type Segment = {
-  id: string;
-  label: string;
-  packages: PackageTier[];
-};
-
-const segments: Segment[] = [
-  {
-    id: "oslavy",
-    label: "Súkromné oslavy",
-    packages: [
-      {
-        name: "Basic",
-        subtitle: "Koordinácia v deň D",
-        price: "150 – 200 €",
-        features: [
-          "Oboznámenie sa s harmonogramom 1–2 týždne pred akciou",
-          "Osobná prítomnosť na mieste (4–6 hodín)",
-          "Koordinácia dodávateľov a vítanie hostí",
-          "Riešenie nečakaných situácií v deň D",
-        ],
-      },
-      {
-        name: "Standard",
-        subtitle: "Plánovanie + koordinácia",
-        price: "300 – 400 €",
-        features: [
-          "Všetko z balíka Basic",
-          "Kreatívny koncept a detailný harmonogram",
-          "Odporúčanie a komunikácia s dodávateľmi",
-          "Obhliadka priestorov pred podujatím",
-        ],
-        highlighted: true,
-      },
-      {
-        name: "Premium",
-        subtitle: "Full-service na kľúč",
-        price: "od 600 € + dodávatelia",
-        features: [
-          "Všetko z balíka Standard",
-          "Zastrešenie všetkých dodávateľov za vás",
-          "Pozvánky, výzdoba, catering — komplet",
-          "Transparentné vedenie rozpočtu a fakturácia",
-        ],
-      },
-    ],
-  },
-  {
-    id: "pet",
-    label: "Zvieracie oslavy",
-    packages: [
-      {
-        name: "Basic",
-        subtitle: "Koordinácia v deň D",
-        price: "100 – 120 €",
-        features: [
-          "Pomoc na mieste počas oslavy",
-          "Organizácia zvieracích súťaží",
-          "Koordinácia krájania torty a programu",
-          "Riešenie situácií v deň D",
-        ],
-      },
-      {
-        name: "Standard",
-        subtitle: "Plánovanie + koordinácia",
-        price: "200 – 250 €",
-        features: [
-          "Všetko z balíka Basic",
-          "Pet-friendly výzdoba na mieru",
-          "Zabezpečenie pet pekárne a doplnkov",
-          "Pozvánky pre ostatných psíčkarov",
-        ],
-        highlighted: true,
-      },
-      {
-        name: "Premium",
-        subtitle: "Full-service na kľúč",
-        price: "od 400 € + dodávatelia",
-        features: [
-          "Všetko z balíka Standard",
-          "Prenájom cvičáku alebo parku",
-          "Profi fotograf zvierat a agility prekážky",
-          "Darčekové balíčky pre hostí",
-        ],
-      },
-    ],
-  },
-  {
-    id: "teambuilding",
-    label: "Teambuildingy",
-    packages: [
-      {
-        name: "Basic",
-        subtitle: "Koordinácia v deň D",
-        price: "300 – 400 €",
-        features: [
-          "Realizácia športového alebo zábavného programu",
-          "Koordinácia aktivít na mieste",
-          "Ideálne ak máte chatu a catering vybavené",
-          "Program na niekoľko hodín",
-        ],
-      },
-      {
-        name: "Standard",
-        subtitle: "Plánovanie + koordinácia",
-        price: "20 – 30 € / osoba",
-        features: [
-          "Všetko z balíka Basic",
-          "Minimálne 15–20 účastníkov",
-          "Manažment, pomôcky na aktivity a koordinácia",
-          "Ubytovanie a strava sa fakturujú zvlášť",
-        ],
-        highlighted: true,
-      },
-      {
-        name: "Premium",
-        subtitle: "Full-service na kľúč",
-        price: "45 – 60+ € / osoba",
-        features: [
-          "Všetko z balíka Standard",
-          "Celovíkendový program s ubytovaním",
-          "Prenájom rezortu, večerný DJ a branding",
-          "Marža 10–15 % na služby dodávateľov",
-        ],
-      },
-    ],
-  },
-  {
-    id: "sport",
-    label: "Športové podujatia",
-    packages: [
-      {
-        name: "Basic",
-        subtitle: "Koordinácia v deň D",
-        price: "400 – 500 €",
-        features: [
-          "Odriadenie štartu a cieľa na podujatí",
-          "Koordinácia na mieste v deň akcie",
-          "Ideálne pre existujúce lokálne behy",
-          "Osobná prítomnosť nášho tímu",
-        ],
-      },
-      {
-        name: "Standard",
-        subtitle: "Plánovanie + koordinácia",
-        price: "800 – 1 200 €",
-        features: [
-          "Všetko z balíka Basic",
-          "Harmonogram pre turnaj alebo lokálny beh",
-          "Zabezpečenie rozhodcov a registrácie",
-          "Obhliadka trate a logistická príprava",
-        ],
-        highlighted: true,
-      },
-      {
-        name: "Premium",
-        subtitle: "Full-service na kľúč",
-        price: "1 500 – 2 500+ €",
-        features: [
-          "Všetko z balíka Standard",
-          "Marketing, online registrácie a stavba tratí",
-          "Záchranná služba, pódium a medaily na mieru",
-          "Kompletná administratíva a povolenia",
-        ],
-      },
-    ],
-  },
-];
+type Segment = Dictionary["packages"]["segments"][number];
+type PackageTier = Segment["packages"][number];
 
 const inputClass =
   "w-full rounded-xl border border-gold/40 bg-background px-4 py-3 text-sm outline-none transition focus:border-gold";
 
-export default function Packages() {
-  const [activeSegment, setActiveSegment] = useState(segments[0].id);
+export default function Packages({ dict }: Props) {
+  const [activeSegment, setActiveSegment] = useState(dict.segments[0].id);
   const [selectedPkg, setSelectedPkg] = useState<{ segment: string; pkg: string } | null>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const [state, formAction] = useActionState(
@@ -194,7 +23,7 @@ export default function Packages() {
     null
   );
 
-  const current = segments.find((s) => s.id === activeSegment)!;
+  const current = dict.segments.find((s) => s.id === activeSegment)!;
 
   const handleSelect = (segmentLabel: string, pkgName: string) => {
     setSelectedPkg({ segment: segmentLabel, pkg: pkgName });
@@ -212,20 +41,16 @@ export default function Packages() {
       <div className="mx-auto max-w-5xl">
         <Reveal className="mb-12 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
-            Cenník
+            {dict.label}
           </p>
           <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            Balíky služieb
+            {dict.title}
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted">
-            Vyberte segment a porovnajte tri úrovne starostlivosti. Presná cena
-            závisí od rozsahu akcie — radi pripravíme nezáväznú ponuku.
-          </p>
+          <p className="mx-auto mt-4 max-w-xl text-muted">{dict.subtitle}</p>
         </Reveal>
 
-        {/* Segment taby */}
         <div className="mb-10 flex flex-wrap justify-center gap-2">
-          {segments.map((segment) => (
+          {dict.segments.map((segment) => (
             <button
               key={segment.id}
               type="button"
@@ -241,55 +66,49 @@ export default function Packages() {
           ))}
         </div>
 
-        {/* Balíky */}
         <div className="grid gap-6 lg:grid-cols-3">
-          {current.packages.map((pkg, i) => (
+          {current.packages.map((pkg: PackageTier, i: number) => (
             <Reveal key={pkg.name} delay={i * 100} direction="up">
-            <article
-              key={pkg.name}
-              className={`flex flex-col rounded-2xl border p-8 ${
-                pkg.highlighted
-                  ? "border-gold bg-gold/[0.06] shadow-sm"
-                  : "border-gold/30 bg-background"
-              }`}
-            >
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
-                {pkg.name}
-              </p>
-              <h3 className="mt-2 font-display text-xl font-semibold">
-                {pkg.subtitle}
-              </h3>
-              <p className="mt-4 font-display text-2xl font-semibold">
-                {pkg.price}
-              </p>
-
-              <ul className="mt-6 flex flex-1 flex-col gap-3">
-                {pkg.features.map((feature) => (
-                  <li key={feature} className="flex gap-2 text-sm leading-relaxed text-muted">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                type="button"
-                onClick={() => handleSelect(current.label, pkg.name)}
-                className="mt-8 w-full rounded-full border border-gold py-2.5 text-sm font-medium tracking-wide transition hover:bg-gold/15"
+              <article
+                className={`flex flex-col rounded-2xl border p-8 ${
+                  pkg.highlighted
+                    ? "border-gold bg-gold/[0.06] shadow-sm"
+                    : "border-gold/30 bg-background"
+                }`}
               >
-                Mám záujem
-              </button>
-            </article>
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
+                  {pkg.name}
+                </p>
+                <h3 className="mt-2 font-display text-xl font-semibold">
+                  {pkg.subtitle}
+                </h3>
+                <p className="mt-4 font-display text-2xl font-semibold">
+                  {pkg.price}
+                </p>
+
+                <ul className="mt-6 flex flex-1 flex-col gap-3">
+                  {pkg.features.map((feature: string) => (
+                    <li key={feature} className="flex gap-2 text-sm leading-relaxed text-muted">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <button
+                  type="button"
+                  onClick={() => handleSelect(current.label, pkg.name)}
+                  className="mt-8 w-full rounded-full border border-gold py-2.5 text-sm font-medium tracking-wide transition hover:bg-gold/15"
+                >
+                  {dict.interested}
+                </button>
+              </article>
             </Reveal>
           ))}
         </div>
 
-        <p className="mt-10 text-center text-sm text-muted">
-          Všetky ceny sú orientačné. Pri objednávke vystavujeme zálohovú faktúru
-          na blokovanie termínu.
-        </p>
+        <p className="mt-10 text-center text-sm text-muted">{dict.note}</p>
 
-        {/* Inline formulár */}
         <div
           ref={formRef}
           className={`overflow-hidden transition-all duration-500 ${
@@ -299,19 +118,17 @@ export default function Packages() {
           <div className="rounded-2xl border border-gold/40 p-8">
             <div className="mb-6">
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
-                Dopyt
+                {dict.inquiryLabel}
               </p>
               <h3 className="mt-1 font-display text-2xl font-semibold">
-                {selectedPkg?.segment} — balík {selectedPkg?.pkg}
+                {selectedPkg?.segment} — {dict.inquiryPackage} {selectedPkg?.pkg}
               </h3>
-              <p className="mt-2 text-sm text-muted">
-                Vyplňte formulár a ozveme sa vám čo najskôr, ideálne ešte v ten istý deň.
-              </p>
+              <p className="mt-2 text-sm text-muted">{dict.inquirySubtitle}</p>
             </div>
 
             {state?.ok ? (
               <div className="rounded-xl border border-gold bg-gold/[0.05] p-6 text-center">
-                <p className="font-display text-lg font-semibold">Dopyt odoslaný</p>
+                <p className="font-display text-lg font-semibold">{dict.sent}</p>
                 <p className="mt-2 text-sm text-muted">{state.message}</p>
               </div>
             ) : (
@@ -321,29 +138,37 @@ export default function Packages() {
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="pkg-name" className="mb-2 block text-sm font-medium">Meno *</label>
+                    <label htmlFor="pkg-name" className="mb-2 block text-sm font-medium">
+                      {dict.form.name}
+                    </label>
                     <input id="pkg-name" name="name" required className={inputClass} placeholder="Ján Novák" />
                   </div>
                   <div>
-                    <label htmlFor="pkg-email" className="mb-2 block text-sm font-medium">E-mail *</label>
+                    <label htmlFor="pkg-email" className="mb-2 block text-sm font-medium">
+                      {dict.form.email}
+                    </label>
                     <input id="pkg-email" name="email" type="email" required className={inputClass} placeholder="jan@email.sk" />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="pkg-phone" className="mb-2 block text-sm font-medium">Telefón</label>
+                  <label htmlFor="pkg-phone" className="mb-2 block text-sm font-medium">
+                    {dict.form.phone}
+                  </label>
                   <input id="pkg-phone" name="phone" type="tel" className={inputClass} placeholder="+421 900 000 000" />
                 </div>
 
                 <div>
-                  <label htmlFor="pkg-message" className="mb-2 block text-sm font-medium">Správa *</label>
+                  <label htmlFor="pkg-message" className="mb-2 block text-sm font-medium">
+                    {dict.form.message}
+                  </label>
                   <textarea
                     id="pkg-message"
                     name="message"
                     required
                     rows={4}
                     className={`${inputClass} resize-none`}
-                    placeholder="Popíšte váš event — dátum, počet hostí, miesto..."
+                    placeholder={dict.form.messagePlaceholder}
                   />
                 </div>
 
@@ -356,21 +181,20 @@ export default function Packages() {
                     type="submit"
                     className="flex-1 rounded-full border border-gold bg-gold/10 py-3 text-sm font-medium tracking-wide transition hover:bg-gold/20"
                   >
-                    Odoslať dopyt
+                    {dict.form.submit}
                   </button>
                   <button
                     type="button"
                     onClick={() => setSelectedPkg(null)}
                     className="rounded-full border border-gold/30 px-5 py-3 text-sm text-muted transition hover:border-gold hover:text-foreground"
                   >
-                    Zrušiť
+                    {dict.form.cancel}
                   </button>
                 </div>
               </form>
             )}
           </div>
         </div>
-
       </div>
     </section>
   );

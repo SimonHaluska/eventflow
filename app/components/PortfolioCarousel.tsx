@@ -1,23 +1,20 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import Reveal from "./Reveal";
+import type { Dictionary } from "../[lang]/dictionaries";
 
-const items = [
-  { id: 1, category: "Súkromné oslavy", label: "Narodeninová oslava" },
-  { id: 2, category: "Zvieracie oslavy", label: "Pet párty" },
-  { id: 3, category: "Teambuilding", label: "Firemný víkend" },
-  { id: 4, category: "Športové podujatia", label: "Charitatívny beh" },
-  { id: 5, category: "Teambuilding", label: "Outdoor teambuilding" },
-  { id: 6, category: "Súkromné oslavy", label: "Výročie svadby" },
-];
+type Props = { dict: Dictionary["portfolio"] };
+
+type Item = Dictionary["portfolio"]["items"][number];
 
 function CarouselItem({
   item,
   position,
+  photoSoon,
 }: {
-  item: (typeof items)[0];
+  item: Item;
   position: "left" | "center" | "right";
+  photoSoon: string;
 }) {
   const isCenter = position === "center";
   return (
@@ -29,16 +26,13 @@ function CarouselItem({
       }`}
       style={{ transform: isCenter ? "scale(1)" : "scale(0.9)" }}
     >
-      {/* Placeholder fotka */}
       <div
         className={`flex items-center justify-center bg-cream-dark transition-all duration-500 ${
           isCenter ? "h-56 sm:h-72" : "h-40 sm:h-52"
         }`}
       >
-        <span className="text-sm text-muted/40">Fotka čoskoro</span>
+        <span className="text-sm text-muted/40">{photoSoon}</span>
       </div>
-
-      {/* Popis */}
       <div className={`p-4 ${isCenter ? "sm:p-6" : ""}`}>
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
           {item.category}
@@ -51,9 +45,9 @@ function CarouselItem({
   );
 }
 
-export default function PortfolioCarousel() {
+export default function PortfolioCarousel({ dict }: Props) {
   const [current, setCurrent] = useState(0);
-  const total = items.length;
+  const total = dict.items.length;
 
   const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
   const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
@@ -68,11 +62,10 @@ export default function PortfolioCarousel() {
 
   return (
     <div>
-      {/* Carousel */}
       <div className="flex items-center justify-center gap-3 sm:gap-6">
         <button
           onClick={prev}
-          aria-label="Predchádzajúci"
+          aria-label={dict.prevLabel}
           className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/50 transition hover:border-gold hover:text-gold"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-4 w-4">
@@ -82,17 +75,17 @@ export default function PortfolioCarousel() {
 
         <div className="flex items-center justify-center gap-4 overflow-hidden">
           <button onClick={prev} className="focus:outline-none">
-            <CarouselItem item={items[leftIdx]} position="left" />
+            <CarouselItem item={dict.items[leftIdx]} position="left" photoSoon={dict.photoSoon} />
           </button>
-          <CarouselItem item={items[current]} position="center" />
+          <CarouselItem item={dict.items[current]} position="center" photoSoon={dict.photoSoon} />
           <button onClick={next} className="focus:outline-none">
-            <CarouselItem item={items[rightIdx]} position="right" />
+            <CarouselItem item={dict.items[rightIdx]} position="right" photoSoon={dict.photoSoon} />
           </button>
         </div>
 
         <button
           onClick={next}
-          aria-label="Ďalší"
+          aria-label={dict.nextLabel}
           className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/50 transition hover:border-gold hover:text-gold"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-4 w-4">
@@ -101,13 +94,12 @@ export default function PortfolioCarousel() {
         </button>
       </div>
 
-      {/* Bodky */}
       <div className="mt-6 flex justify-center gap-2">
-        {items.map((_, i) => (
+        {dict.items.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            aria-label={`Položka ${i + 1}`}
+            aria-label={`${dict.itemLabel} ${i + 1}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               i === current ? "w-6 bg-gold" : "w-1.5 bg-gold/30"
             }`}

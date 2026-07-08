@@ -1,22 +1,14 @@
-import type { Metadata } from "next";
-import CookieBanner from "./components/CookieBanner";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import { headers } from "next/headers";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Momentum Events | Eventová agentúra",
-  description:
-    "Organizujeme športové podujatia, teambuildingy a súkromné oslavy. Od konceptu po posledného hosťa.",
-};
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
+  const headersList = await headers();
+  const locale = headersList.get("x-locale") ?? "sk";
+
   return (
-    <html lang="sk" className="h-full antialiased">
+    <html lang={locale} className="h-full antialiased">
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link
@@ -25,10 +17,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full flex-col bg-background text-foreground">
-        <Header />
-        <main className="flex flex-1 flex-col">{children}</main>
-        <Footer />
-        <CookieBanner />
+        {children}
       </body>
     </html>
   );

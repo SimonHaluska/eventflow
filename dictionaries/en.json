@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "home": {
+      "title": "Momentum Events | Event Agency",
+      "description": "We organise sports events, team buildings and private celebrations. From concept to the last guest."
+    },
+    "contact": {
+      "title": "Contact | Momentum Events",
+      "description": "Write to us and we will get back to you as soon as possible. Initial consultation is free."
+    },
+    "about": {
+      "title": "About Us | Momentum Events",
+      "description": "Meet the Momentum Events team. Two areas of expertise, one compact team."
+    },
+    "pricing": {
+      "title": "Pricing | Momentum Events",
+      "description": "Three service packages for every segment — private celebrations, pet events, team buildings and sports events."
+    },
+    "portfolio": {
+      "title": "Portfolio | Momentum Events",
+      "description": "Gallery of completed events — celebrations, team buildings and sports events."
+    },
+    "howItWorks": {
+      "title": "How It Works | Momentum Events",
+      "description": "Six steps from first contact to successful event delivery."
+    },
+    "privacy": {
+      "title": "Privacy Policy | Momentum Events",
+      "description": "Privacy policy of Momentum Events agency."
+    }
+  },
+  "header": {
+    "logoAlt": "Momentum Events Logo",
+    "nav": {
+      "pricing": "Pricing",
+      "howItWorks": "How It Works",
+      "portfolio": "Portfolio",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "cta": "Consultation",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "footer": {
+    "description": "Event agency focused on sports, team buildings and private celebrations.",
+    "followUs": "Follow Us",
+    "navTitle": "Navigation",
+    "nav": {
+      "pricing": "Pricing",
+      "howItWorks": "How It Works",
+      "portfolio": "Portfolio",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "segmentsTitle": "Segments",
+    "segments": [
+      { "label": "Private Celebrations", "slug": "/sluzby" },
+      { "label": "Pet Celebrations", "slug": "/sluzby" },
+      { "label": "Team Buildings", "slug": "/sluzby" },
+      { "label": "Sports Events", "slug": "/sluzby" }
+    ],
+    "locationTitle": "Find Us",
+    "copyright": "Momentum Events. All rights reserved."
+  },
+  "home": {
+    "heroTitle": "From concept to",
+    "heroTitleHighlight": "the last guest",
+    "heroSubtitle": "Sports events, corporate team buildings and private celebrations — including pet-friendly events.",
+    "heroCta": "Our Services",
+    "heroCtaSecondary": "Contact Us"
+  },
+  "partners": {
+    "label": "Partnerships",
+    "title": "Companies we have worked with",
+    "subtitle": "Partner and client logos will be added after our first projects."
+  },
+  "testimonials": {
+    "label": "Testimonials",
+    "title": "What our clients say",
+    "subtitle": "We will add testimonials after completing our first events."
+  },
+  "about": {
+    "label": "Who we are",
+    "title": "Our Team",
+    "subtitle": "We are a team with different yet complementary expertise. We present ourselves as one compact team.",
+    "prevLabel": "Previous",
+    "nextLabel": "Next",
+    "founders": [
+      {
+        "name": "Šimon Haluska",
+        "role": "Co-founder & Managing Director",
+        "focus": "Sports events and corporate team buildings",
+        "description": "Leads projects where logistics, sports programming and coordination of larger events matter — from corporate tournaments to charity runs.",
+        "initials": "ŠH"
+      },
+      {
+        "name": "Andrea Fačkovcová",
+        "role": "Co-founder & Managing Director",
+        "focus": "Private and pet celebrations",
+        "description": "Leads projects with a personal story — birthdays, family celebrations and pet-friendly events, where every detail and atmosphere matters.",
+        "initials": "AF"
+      },
+      {
+        "name": "Veronika Tóthová",
+        "role": "Co-founder & Managing Director",
+        "focus": "Private and pet celebrations",
+        "description": "Leads projects with a personal story — birthdays, family celebrations and pet-friendly events, where every detail and atmosphere matters.",
+        "initials": "VT"
+      },
+      {
+        "name": "Lucia Pazderová",
+        "role": "Co-founder & Managing Director",
+        "focus": "Private and pet celebrations",
+        "description": "Leads projects with a personal story — birthdays, family celebrations and pet-friendly events, where every detail and atmosphere matters.",
+        "initials": "LP"
+      },
+      {
+        "name": "Petra Filipovičová",
+        "role": "Co-founder & Managing Director",
+        "focus": "Private and pet celebrations",
+        "description": "Leads projects with a personal story — birthdays, family celebrations and pet-friendly events, where every detail and atmosphere matters.",
+        "initials": "PF"
+      }
+    ],
+    "values": [
+      {
+        "title": "One team, one brand",
+        "text": "We always attend key client meetings together. You see the full agency from day one."
+      },
+      {
+        "title": "Two areas of expertise, one goal",
+        "text": "Sport and celebrations complement each other. Every project is internally led by the partner with deeper expertise in that segment."
+      },
+      {
+        "title": "Plan B for every supplier",
+        "text": "For key positions, we always have a backup partner. We minimise the risk of anything spoiling your day."
+      }
+    ]
+  },
+  "services": {
+    "label": "What We Do",
+    "title": "Our Services",
+    "subtitle": "Four segments, three packages in each. Choose the level that suits you — from day-of coordination to full-service turnkey.",
+    "items": [
+      {
+        "id": "oslavy",
+        "title": "Private Celebrations",
+        "description": "Birthdays, anniversaries and family celebrations. From simple coordination to full turnkey delivery."
+      },
+      {
+        "id": "pet",
+        "title": "Pet Celebrations",
+        "description": "Pet-friendly parties for your four-legged friends. Agility, pet bakeries and fun for the whole dog crew."
+      },
+      {
+        "id": "teambuilding",
+        "title": "Team Buildings",
+        "description": "Corporate events, sports programmes and weekend events. Strengthen your team through experience, not presentations."
+      },
+      {
+        "id": "sport",
+        "title": "Sports Events",
+        "description": "Runs, tournaments, corporate sports days and charity events. From start to finish — we manage it all."
+      }
+    ]
+  },
+  "packages": {
+    "label": "Pricing",
+    "title": "Service Packages",
+    "subtitle": "Choose a segment and compare three levels of service. The exact price depends on the scope of the event — we're happy to prepare a non-binding offer.",
+    "note": "All prices are indicative. Upon booking, we issue a deposit invoice to secure your date.",
+    "interested": "I'm Interested",
+    "inquiryLabel": "Enquiry",
+    "inquiryPackage": "package",
+    "inquirySubtitle": "Fill in the form and we'll get back to you as soon as possible, ideally the same day.",
+    "sent": "Enquiry sent",
+    "form": {
+      "name": "Name *",
+      "email": "Email *",
+      "phone": "Phone",
+      "message": "Message *",
+      "messagePlaceholder": "Describe your event — date, number of guests, venue...",
+      "submit": "Send Enquiry",
+      "cancel": "Cancel"
+    },
+    "segments": [
+      {
+        "id": "oslavy",
+        "label": "Private Celebrations",
+        "packages": [
+          {
+            "name": "Basic",
+            "subtitle": "Day-of Coordination",
+            "price": "150 – 200 €",
+            "features": [
+              "Briefing on schedule 1–2 weeks before the event",
+              "Personal presence on-site (4–6 hours)",
+              "Supplier coordination and guest welcome",
+              "Handling unexpected situations on the day"
+            ]
+          },
+          {
+            "name": "Standard",
+            "subtitle": "Planning + Coordination",
+            "price": "300 – 400 €",
+            "highlighted": true,
+            "features": [
+              "Everything in Basic",
+              "Creative concept and detailed schedule",
+              "Supplier recommendations and communication",
+              "Venue inspection prior to the event"
+            ]
+          },
+          {
+            "name": "Premium",
+            "subtitle": "Full-service Turnkey",
+            "price": "from 600 € + suppliers",
+            "features": [
+              "Everything in Standard",
+              "Full supplier management on your behalf",
+              "Invitations, décor, catering — complete",
+              "Transparent budget management and invoicing"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pet",
+        "label": "Pet Celebrations",
+        "packages": [
+          {
+            "name": "Basic",
+            "subtitle": "Day-of Coordination",
+            "price": "100 – 120 €",
+            "features": [
+              "On-site assistance during the celebration",
+              "Organisation of animal competitions",
+              "Coordination of cake cutting and programme",
+              "Handling situations on the day"
+            ]
+          },
+          {
+            "name": "Standard",
+            "subtitle": "Planning + Coordination",
+            "price": "200 – 250 €",
+            "highlighted": true,
+            "features": [
+              "Everything in Basic",
+              "Custom pet-friendly décor",
+              "Sourcing pet bakery and accessories",
+              "Invitations for fellow dog owners"
+            ]
+          },
+          {
+            "name": "Premium",
+            "subtitle": "Full-service Turnkey",
+            "price": "from 400 € + suppliers",
+            "features": [
+              "Everything in Standard",
+              "Dog training centre or park rental",
+              "Professional animal photographer and agility course",
+              "Gift bags for guests"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teambuilding",
+        "label": "Team Buildings",
+        "packages": [
+          {
+            "name": "Basic",
+            "subtitle": "Day-of Coordination",
+            "price": "300 – 400 €",
+            "features": [
+              "Delivery of sports or entertainment programme",
+              "On-site activity coordination",
+              "Ideal if you have the venue and catering sorted",
+              "Programme for several hours"
+            ]
+          },
+          {
+            "name": "Standard",
+            "subtitle": "Planning + Coordination",
+            "price": "20 – 30 € / person",
+            "highlighted": true,
+            "features": [
+              "Everything in Basic",
+              "Minimum 15–20 participants",
+              "Management, activity equipment and coordination",
+              "Accommodation and meals billed separately"
+            ]
+          },
+          {
+            "name": "Premium",
+            "subtitle": "Full-service Turnkey",
+            "price": "45 – 60+ € / person",
+            "features": [
+              "Everything in Standard",
+              "Full weekend programme with accommodation",
+              "Resort rental, evening DJ and branding",
+              "10–15% margin on supplier services"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sport",
+        "label": "Sports Events",
+        "packages": [
+          {
+            "name": "Basic",
+            "subtitle": "Day-of Coordination",
+            "price": "400 – 500 €",
+            "features": [
+              "Managing start and finish at the event",
+              "On-site coordination on the day",
+              "Ideal for existing local runs",
+              "Personal presence of our team"
+            ]
+          },
+          {
+            "name": "Standard",
+            "subtitle": "Planning + Coordination",
+            "price": "800 – 1,200 €",
+            "highlighted": true,
+            "features": [
+              "Everything in Basic",
+              "Schedule for a tournament or local run",
+              "Sourcing referees and managing registrations",
+              "Course inspection and logistics preparation"
+            ]
+          },
+          {
+            "name": "Premium",
+            "subtitle": "Full-service Turnkey",
+            "price": "1,500 – 2,500+ €",
+            "features": [
+              "Everything in Standard",
+              "Marketing, online registrations and course setup",
+              "Medical service, podium and custom medals",
+              "Full administration and permits"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "label": "Frequently Asked Questions",
+    "title": "FAQ",
+    "subtitle": "Answers to the questions we receive most often.",
+    "items": [
+      {
+        "question": "How does payment and the deposit work?",
+        "answer": "After signing the contract, we issue a deposit invoice for 50% of the total price. The remaining balance is invoiced after the successful completion of the event, with a 7–14 day payment term. For larger projects over €5,000, we use a three-phase model: 40% at signing, 40% one month before the event, 20% after completion."
+      },
+      {
+        "question": "What is included in the package price and what is charged separately?",
+        "answer": "The package price covers the agency fee (our time, coordination and management). Charged separately: supplier costs (catering, equipment, venues), travel beyond our base (€0.40–0.50/km), staff accommodation for events over 100 km away, and a 10–15% agency commission on Standard and Premium packages."
+      },
+      {
+        "question": "What are the cancellation terms?",
+        "answer": "More than 30 days before the event: full deposit refund (excluding non-refundable supplier payments). 15–30 days: deposit is forfeited to cover work completed. 8–14 days: 75% cancellation fee of total price. 7 days or less: 100% of total price — at this point everything is purchased and staff are booked."
+      },
+      {
+        "question": "What if there is bad weather at an outdoor event?",
+        "answer": "For outdoor events, we always define a contingency plan in the contract: an alternative indoor option or date postponement for a pre-agreed administrative fee. We never leave a client without a solution."
+      },
+      {
+        "question": "How many people do I need for a team building?",
+        "answer": "The Standard package for team buildings is set at a minimum of 15–20 participants. For smaller groups we recommend the Basic package, where you deliver a programme for a few hours. There is no maximum participant limit."
+      },
+      {
+        "question": "Can you organise events outside Bratislava?",
+        "answer": "Yes, we organise events throughout Slovakia. For travel outside our base we charge €0.40–0.50/km. For events more than 100 km away or with a late programme, the client also covers accommodation and meals for our team."
+      },
+      {
+        "question": "How quickly will you respond after I submit an enquiry?",
+        "answer": "Within 24 hours on working days. We always attend key initial meetings together so you see the full agency from the very first meeting."
+      }
+    ]
+  },
+  "howItWorks": {
+    "label": "Process",
+    "title": "How It Works",
+    "subtitle": "From first contact to the last guest — six steps that connect us.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Enquiry and Consultation",
+        "description": "Write to us or call. The first consultation is always free and non-binding. Together we'll find out what your event needs."
+      },
+      {
+        "number": "02",
+        "title": "Package Selection and Contract",
+        "description": "Based on your vision and budget, we'll propose the right package. Once agreed, we sign a contract with clear terms."
+      },
+      {
+        "number": "03",
+        "title": "Deposit and Date Confirmation",
+        "description": "After signing, we issue a deposit invoice according to the agreed budget. The deposit secures your date and we begin preparations."
+      },
+      {
+        "number": "04",
+        "title": "Preparation and Coordination",
+        "description": "We arrange venues, suppliers, schedules and all logistics. You are kept informed but don't need to handle the details."
+      },
+      {
+        "number": "05",
+        "title": "Event Day — Delivery",
+        "description": "Our team is personally present throughout the event. We manage the programme, coordinate suppliers and handle everything for you."
+      },
+      {
+        "number": "06",
+        "title": "Final Invoice and Debrief",
+        "description": "After the successful event, we issue the final invoice. We welcome your feedback — every event helps us improve."
+      }
+    ]
+  },
+  "portfolio": {
+    "label": "Our Work",
+    "title": "Portfolio",
+    "subtitle": "Photos from completed events coming soon. Follow us on social media where we share behind the scenes of every event.",
+    "contactText": "Photos are being prepared — contact us in the meantime.",
+    "contactLink": "Contact Us",
+    "photoSoon": "Photo coming soon",
+    "prevLabel": "Previous",
+    "nextLabel": "Next",
+    "itemLabel": "Item",
+    "items": [
+      { "id": 1, "category": "Private Celebrations", "label": "Birthday Party" },
+      { "id": 2, "category": "Pet Celebrations", "label": "Pet Party" },
+      { "id": 3, "category": "Team Building", "label": "Corporate Weekend" },
+      { "id": 4, "category": "Sports Events", "label": "Charity Run" },
+      { "id": 5, "category": "Team Building", "label": "Outdoor Team Building" },
+      { "id": 6, "category": "Private Celebrations", "label": "Wedding Anniversary" }
+    ]
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Get in Touch",
+    "subtitle": "Fill in the form and we'll get back to you as soon as possible, ideally the same day. Initial consultation is always free.",
+    "sent": "Enquiry sent",
+    "form": {
+      "name": "Name *",
+      "email": "Email *",
+      "phone": "Phone",
+      "eventType": "Event type",
+      "package": "Package",
+      "message": "Message *",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "you@email.com",
+      "phonePlaceholder": "+421 ...",
+      "messagePlaceholder": "Describe your event — date, number of guests, vision...",
+      "submit": "Send Enquiry",
+      "submitting": "Sending...",
+      "segments": ["Private Celebrations", "Pet Celebrations", "Team Buildings", "Sports Events", "Not sure / need advice"],
+      "packages": ["Basic", "Standard", "Premium", "Not sure"]
+    }
+  },
+  "cookie": {
+    "text": "This website uses cookies to improve your experience. More info in our",
+    "privacyLink": "privacy policy",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "privacy": {
+    "breadcrumb": "Legal Information",
+    "title": "Privacy Policy",
+    "since": "Effective from: 2026",
+    "sections": [
+      {
+        "heading": "1. Data Controller",
+        "content": "The data controller is Momentum Events, s.r.o. (hereinafter \"Momentum Events\" or \"we\"). Contact: info@momentumevents.sk"
+      },
+      {
+        "heading": "2. Data We Collect",
+        "intro": "Through the contact form on this website, we collect:",
+        "list": ["First and last name", "Email address", "Phone number (optional)", "Type of requested event and message"]
+      },
+      {
+        "heading": "3. Purpose of Processing",
+        "content": "We process your data solely for the purpose of responding to your enquiry and preparing an offer. We will not send you marketing materials without your consent."
+      },
+      {
+        "heading": "4. Cookies",
+        "content": "This website uses technical cookies essential for its operation. We use analytical cookies (e.g. Google Analytics) only with your consent, which you can grant or refuse in the banner on your first visit."
+      },
+      {
+        "heading": "5. Data Sharing",
+        "content": "We do not sell or share your personal data with third parties for marketing purposes. We may share it with suppliers we contact directly in connection with your enquiry — always only to the extent necessary."
+      },
+      {
+        "heading": "6. Retention Period",
+        "content": "We retain personal data for the period necessary to process the enquiry, and for the duration of contract performance and statutory obligations (max. 5 years)."
+      },
+      {
+        "heading": "7. Your Rights",
+        "intro": "You have the right to:",
+        "list": [
+          "Access your personal data",
+          "Correct inaccurate data",
+          "Erasure of data (right to be forgotten)",
+          "Restriction of processing",
+          "Data portability",
+          "Lodge a complaint with the Office for Personal Data Protection of the Slovak Republic"
+        ],
+        "contact": "To exercise your rights, contact us at info@momentumevents.sk."
+      },
+      {
+        "heading": "8. Changes to This Policy",
+        "content": "We may update this policy from time to time. We will inform you of significant changes via the website."
+      }
+    ]
+  }
+}
