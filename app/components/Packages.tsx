@@ -2,6 +2,7 @@
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import { submitContact } from "../actions/contact";
+import Reveal from "./Reveal";
 
 type PackageTier = {
   name: string;
@@ -205,7 +206,7 @@ export default function Packages() {
   return (
     <section id="baliky" className="border-t border-gold/30 px-6 py-24">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-12 text-center">
+        <Reveal className="mb-12 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             Cenník
           </p>
@@ -216,7 +217,7 @@ export default function Packages() {
             Vyberte segment a porovnajte tri úrovne starostlivosti. Presná cena
             závisí od rozsahu akcie — radi pripravíme nezáväznú ponuku.
           </p>
-        </div>
+        </Reveal>
 
         {/* Segment taby */}
         <div className="mb-10 flex flex-wrap justify-center gap-2">
@@ -238,7 +239,8 @@ export default function Packages() {
 
         {/* Balíky */}
         <div className="grid gap-6 lg:grid-cols-3">
-          {current.packages.map((pkg) => (
+          {current.packages.map((pkg, i) => (
+            <Reveal key={pkg.name} delay={i * 100} direction="up">
             <article
               key={pkg.name}
               className={`flex flex-col rounded-2xl border p-8 ${
@@ -274,6 +276,7 @@ export default function Packages() {
                 Mám záujem
               </button>
             </article>
+            </Reveal>
           ))}
         </div>
 

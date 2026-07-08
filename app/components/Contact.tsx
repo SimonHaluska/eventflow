@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { submitContact } from "../actions/contact";
+import Reveal from "./Reveal";
 
 const segments = [
   "Súkromné oslavy",
@@ -26,7 +27,7 @@ export default function Contact() {
   return (
     <section id="kontakt" className="border-t border-gold/30 px-6 py-24">
       <div className="mx-auto max-w-2xl">
-        <div className="mb-12 text-center">
+        <Reveal className="mb-12 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             Kontakt
           </p>
@@ -37,7 +38,8 @@ export default function Contact() {
             Vyplňte formulár a ozveme sa vám čo najskôr, ideálne ešte v ten istý deň. Nezáväzná
             konzultácia je vždy zadarmo.
           </p>
-        </div>
+        </Reveal>
+        <Reveal delay={150}>
 
         {state?.ok ? (
           <div className="rounded-2xl border border-gold bg-gold/[0.05] p-8 text-center">
@@ -150,6 +152,7 @@ export default function Contact() {
             </button>
           </form>
         )}
+        </Reveal>
       </div>
     </section>
   );

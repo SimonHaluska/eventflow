@@ -190,14 +190,13 @@ export default function About() {
 
         {/* Hodnoty */}
         <div className="mt-20 grid gap-6 sm:grid-cols-3">
-          {values.map((value) => (
-            <div
-              key={value.title}
-              className="rounded-2xl border border-gold/30 bg-cream-dark p-6"
-            >
-              <h4 className="font-display text-lg font-semibold">{value.title}</h4>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{value.text}</p>
-            </div>
+          {values.map((value, i) => (
+            <Reveal key={value.title} delay={i * 100} direction="up">
+              <div className="rounded-2xl border border-gold/30 bg-cream-dark p-6">
+                <h4 className="font-display text-lg font-semibold">{value.title}</h4>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{value.text}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
 
