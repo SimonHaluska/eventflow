@@ -21,6 +21,33 @@ const founders = [
     initials: "AF",
     photo: null as string | null,
   },
+  {
+    name: "Veronika Tóthová",
+    role: "Spoluzakladateľka & konateľka",
+    focus: "Súkromné a zvieracie oslavy",
+    description:
+      "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+    initials: "VT",
+    photo: null as string | null,
+  },
+  {
+    name: "Lucia Pazderová",
+    role: "Spoluzakladateľka & konateľka",
+    focus: "Súkromné a zvieracie oslavy",
+    description:
+      "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+    initials: "LP",
+    photo: null as string | null,
+  },
+  {
+    name: "Petra Filipovičová",
+    role: "Spoluzakladateľka & konateľka",
+    focus: "Súkromné a zvieracie oslavy",
+    description:
+      "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+    initials: "PF",
+    photo: null as string | null,
+  },
 ];
 
 const values = [
