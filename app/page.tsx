@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Partners from "./components/Partners";
 import Testimonials from "./components/Testimonials";
 
 export default function Home() {
@@ -51,6 +52,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Partners />
       <Testimonials />
     </>
   );
