@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const navLinks = [
   { href: "/sluzby", label: "Služby" },
+  { href: "/ako-to-funguje", label: "Ako to funguje" },
   { href: "/portfolio", label: "Portfólio" },
   { href: "/o-nas", label: "O nás" },
   { href: "/kontakt", label: "Kontakt" },

@@ -39,34 +39,34 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-charcoal px-6 py-28">
+    <section className="px-6 py-28">
       <div className="mx-auto max-w-5xl">
         <div className="mb-16 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             Proces
           </p>
-          <h2 className="font-display text-3xl font-bold tracking-tight text-background sm:text-4xl">
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
             Ako to funguje
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-background/60">
+          <p className="mx-auto mt-4 max-w-xl text-muted">
             Od prvého kontaktu po posledného hosťa — šesť krokov, ktoré nás
             spájajú.
           </p>
         </div>
 
-        <div className="grid gap-px bg-background/10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-px bg-gold/10 sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step) => (
             <div
               key={step.number}
-              className="bg-charcoal p-10 transition hover:bg-white/5"
+              className="bg-background p-10 transition hover:bg-cream-dark"
             >
               <p className="font-display text-4xl font-bold text-gold">
                 {step.number}
               </p>
-              <h3 className="mt-4 font-display text-lg font-semibold text-background">
+              <h3 className="mt-4 font-display text-lg font-semibold text-foreground">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-background/60">
+              <p className="mt-2 text-sm leading-relaxed text-muted">
                 {step.description}
               </p>
             </div>
