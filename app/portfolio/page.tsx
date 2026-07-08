@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
+import PortfolioCarousel from "../components/PortfolioCarousel";
 import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
   title: "Portfólio | Momentum Events",
   description: "Galéria realizovaných eventov — oslavy, teambuildingy a športové podujatia.",
 };
-
-const placeholderItems = Array.from({ length: 8 });
 
 export default function PortfolioPage() {
   return (
@@ -25,15 +24,11 @@ export default function PortfolioPage() {
           </p>
         </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {placeholderItems.map((_, i) => (
-            <Reveal key={i} delay={i * 60} direction="up">
-              <div className="aspect-square rounded-2xl border border-dashed border-gold/30 bg-cream-dark/40 transition hover:border-gold/60" />
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={150}>
+          <PortfolioCarousel />
+        </Reveal>
 
-        <Reveal delay={200} className="mt-12 text-center text-sm text-muted">
+        <Reveal delay={300} className="mt-14 text-center text-sm text-muted">
           Fotky pripravujeme — ozvite sa nám medzitým priamo.{" "}
           <a
             href="/kontakt"
