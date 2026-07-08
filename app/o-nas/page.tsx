@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import About from "../components/About";
+import Services from "../components/Services";
 
 export const metadata: Metadata = {
   title: "O nás | Momentum Events",
@@ -8,5 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default function ONasPage() {
-  return <About />;
+  return (
+    <>
+      <Services />
+      <About />
+    </>
+  );
 }
