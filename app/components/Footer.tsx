@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
@@ -65,8 +66,16 @@ export default function Footer() {
 
           {/* Logo + popis + sociálne siete */}
           <div className="sm:col-span-1">
-            <Link href="/" className="inline-block">
-              <span className="font-display text-xl font-semibold tracking-wide text-background">
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="Logo Momentum Events"
+                width={44}
+                height={44}
+                priority
+                className="brightness-0 invert"
+              />
+              <span className="font-display text-lg font-semibold tracking-wide text-background">
                 Momentum Events
               </span>
             </Link>

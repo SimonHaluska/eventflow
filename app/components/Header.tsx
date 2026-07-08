@@ -37,7 +37,6 @@ export default function Header() {
             width={44}
             height={44}
             priority
-            style={{ mixBlendMode: "multiply" }}
           />
           <span className="font-display text-lg font-semibold tracking-wide">
             Momentum Events

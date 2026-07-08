@@ -19,7 +19,6 @@ export default function Home() {
               width={160}
               height={160}
               priority
-              style={{ mixBlendMode: "multiply" }}
             />
           </div>
         </div>
