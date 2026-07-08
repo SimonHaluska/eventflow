@@ -124,7 +124,7 @@ export default function Footer() {
           </div>
 
           {/* Segmenty */}
-          <div className="self-start">
+          <div className="self-start sm:pt-6">
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
               Segmenty
             </p>
