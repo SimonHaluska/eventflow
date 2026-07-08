@@ -105,7 +105,7 @@ export default function Footer() {
           </div>
 
           {/* Navigácia */}
-          <div className="self-start sm:pt-[6px]">
+          <div className="self-start sm:pl-[50px] sm:pt-[6px]">
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
               Navigácia
             </p>
@@ -124,7 +124,7 @@ export default function Footer() {
           </div>
 
           {/* Segmenty */}
-          <div className="self-start sm:pt-[6px]">
+          <div className="self-start sm:pl-[10px] sm:pt-[6px]">
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
               Segmenty
             </p>
