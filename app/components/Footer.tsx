@@ -77,20 +77,23 @@ export default function Footer() {
               oslavy.
             </p>
 
-            {/* Sociálne siete — zobraziť po vytvorení reálnych profilov */}
-            {/* TODO: odkomentovať a doplniť správne URL keď budú účty aktívne
             <p className="mt-10 hidden text-xs font-medium uppercase tracking-[0.2em] text-gold sm:block">
               Sledujte nás
             </p>
             <div className="mt-3 hidden flex-wrap gap-2 sm:flex">
               {socialLinks.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-background/20 text-background/60 transition hover:border-gold hover:text-gold">
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-background/20 text-background/60 transition hover:border-gold hover:text-gold"
+                >
                   {s.icon}
                 </a>
               ))}
             </div>
-            */}
           </div>
 
           {/* Navigácia */}
@@ -154,17 +157,23 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Sociálne siete — mobil — TODO: odkomentovať po vytvorení profilov
             <div className="mt-4 flex flex-wrap gap-2 sm:hidden">
-              <p className="mb-1 w-full text-xs font-medium uppercase tracking-[0.2em] text-gold">Sledujte nás</p>
+              <p className="mb-1 w-full text-xs font-medium uppercase tracking-[0.2em] text-gold">
+                Sledujte nás
+              </p>
               {socialLinks.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-background/20 text-background/60 transition hover:border-gold hover:text-gold">
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-background/20 text-background/60 transition hover:border-gold hover:text-gold"
+                >
                   {s.icon}
                 </a>
               ))}
             </div>
-            */}
 
           </div>
         </div>
