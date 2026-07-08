@@ -12,7 +12,7 @@ export default function PortfolioPage() {
     <section className="px-6 py-24">
       <div className="mx-auto max-w-5xl">
         <div className="mb-14 text-center">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold-dark">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
             Naša práca
           </p>
           <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">

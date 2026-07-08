@@ -15,7 +15,7 @@ const steps = [
     number: "03",
     title: "Záloha a blokácia termínu",
     description:
-      "Po podpise zmluvy vystavíme zálohovú faktúru (50 % z ceny). Tým si záväzne blokujete termín a my začíname prípravy.",
+      "Po podpise zmluvy vystavíme zálohovú faktúru podľa dohodnutého rozpočtu. Záloha záväzne blokuje váš termín a my začíname prípravy.",
   },
   {
     number: "04",

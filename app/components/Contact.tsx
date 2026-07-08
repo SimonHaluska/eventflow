@@ -34,8 +34,8 @@ export default function Contact() {
             Napíšte nám
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted">
-            Vyplňte formulár a ozveme sa vám do 24 hodín. Nezáväzná konzultácia
-            je vždy zadarmo.
+            Vyplňte formulár a ozveme sa vám do 2 pracovných dní. Nezáväzná
+            konzultácia je vždy zadarmo.
           </p>
         </div>
 

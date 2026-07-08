@@ -43,6 +43,6 @@ export async function submitContact(
   return {
     ok: true,
     message:
-      "Ďakujeme za dopyt! Ozveme sa vám do 24 hodín. Na kľúčové stretnutia chodíme vždy spolu.",
+      "Ďakujeme za dopyt! Ozveme sa vám do 2 pracovných dní. Na kľúčové stretnutia chodíme vždy spolu.",
   };
 }
