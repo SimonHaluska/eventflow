@@ -14,6 +14,7 @@ const navSlugs = [
   { key: "howItWorks" as const, slug: "/ako-to-funguje" },
   { key: "portfolio" as const, slug: "/portfolio" },
   { key: "about" as const, slug: "/o-nas" },
+  { key: "blog" as const, slug: "/blog" },
   { key: "contact" as const, slug: "/kontakt" },
 ];
 
@@ -67,10 +68,8 @@ export default function Header({ dict }: Props) {
               <Link
                 key={key}
                 href={href}
-                className={`text-sm tracking-wide transition ${
-                  isActive
-                    ? "font-medium text-foreground"
-                    : "text-muted hover:text-foreground"
+                className={`text-sm tracking-wide transition text-muted hover:text-foreground ${
+                  isActive ? "border-b border-gold pb-0.5" : ""
                 }`}
               >
                 {dict.nav[key]}
@@ -80,19 +79,20 @@ export default function Header({ dict }: Props) {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Language switcher */}
-          <Link
-            href={switchHref}
-            className="hidden rounded-full border border-gold/40 px-3 py-1.5 text-xs font-medium tracking-widest text-muted transition hover:border-gold hover:text-foreground sm:block"
-          >
-            {otherLang.toUpperCase()}
-          </Link>
-
           <Link
             href={`/${lang}/kontakt`}
             className="hidden rounded-full bg-charcoal px-5 py-2 text-sm font-medium tracking-wide text-background transition hover:bg-charcoal/80 sm:block"
           >
             {dict.cta}
+          </Link>
+
+          {/* Language switcher */}
+          <Link
+            href={switchHref}
+            aria-label={otherLang === "en" ? "Switch to English" : "Prepnúť na slovenčinu"}
+            className="hidden items-center justify-center rounded-full border border-gold/40 p-1.5 text-xl leading-none transition hover:border-gold sm:flex sm:ml-[10px]"
+          >
+            {otherLang === "en" ? "🇬🇧" : "🇸🇰"}
           </Link>
 
           <button
@@ -119,10 +119,8 @@ export default function Header({ dict }: Props) {
                 <Link
                   key={key}
                   href={href}
-                  className={`font-display text-2xl tracking-wide transition ${
-                    isActive
-                      ? "font-semibold text-foreground"
-                      : "text-muted hover:text-foreground"
+                  className={`font-display text-2xl tracking-wide transition text-muted hover:text-foreground ${
+                    isActive ? "text-foreground" : ""
                   }`}
                 >
                   {dict.nav[key]}
@@ -139,9 +137,10 @@ export default function Header({ dict }: Props) {
             </Link>
             <Link
               href={switchHref}
-              className="rounded-full border border-gold/40 px-4 py-3 text-sm font-medium tracking-widest text-muted transition hover:border-gold hover:text-foreground"
+              aria-label={otherLang === "en" ? "Switch to English" : "Prepnúť na slovenčinu"}
+              className="flex items-center justify-center rounded-full border border-gold/40 p-2.5 text-xl leading-none transition hover:border-gold"
             >
-              {otherLang.toUpperCase()}
+              {otherLang === "en" ? "🇬🇧" : "🇸🇰"}
             </Link>
           </div>
         </div>

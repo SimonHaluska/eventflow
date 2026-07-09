@@ -52,6 +52,7 @@ const navSlugs = [
   { key: "howItWorks" as const, slug: "/ako-to-funguje" },
   { key: "portfolio" as const, slug: "/portfolio" },
   { key: "about" as const, slug: "/o-nas" },
+  { key: "blog" as const, slug: "/blog" },
   { key: "contact" as const, slug: "/kontakt" },
 ];
 
