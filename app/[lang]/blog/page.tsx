@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "../../components/Reveal";
 import { getDictionary, hasLocale } from "../dictionaries";
+import { client } from "../../../sanity/client";
+import { isSanityConfigured } from "../../../sanity/env";
+import { POSTS_QUERY } from "../../../sanity/queries";
+import { urlFor } from "../../../sanity/imageUrl";
 
 export async function generateMetadata({
   params,
@@ -20,55 +25,40 @@ export async function generateMetadata({
   };
 }
 
-// Placeholder posts — nahradíš reálnymi dátami z CMS
-const placeholderPosts = [
-  {
-    slug: "ako-zorganizovat-dokonaly-teambuilding",
-    date: "2026-06-15",
-    category: { sk: "Teambuildingy", en: "Team Buildings" },
-    title: {
-      sk: "Ako zorganizovať dokonalý teambuilding v 5 krokoch",
-      en: "How to organise the perfect team building in 5 steps",
-    },
-    excerpt: {
-      sk: "Firemný teambuilding nemusí byť nuda. Prezradíme vám, ako vybrať správny formát, motivovať tím a vyhnúť sa najčastejším chybám.",
-      en: "Corporate team building doesn't have to be boring. We share how to choose the right format, motivate your team and avoid common mistakes.",
-    },
-  },
-  {
-    slug: "pet-friendly-oslava-ako-na-to",
-    date: "2026-05-28",
-    category: { sk: "Zvieracie oslavy", en: "Pet Celebrations" },
-    title: {
-      sk: "Pet-friendly oslava: ako na to, aby si si ju užil aj ty aj tvoj pes",
-      en: "Pet-friendly party: how to enjoy it — both you and your dog",
-    },
-    excerpt: {
-      sk: "Oslavy so psami sú trendom, ktorý rastie. Čo všetko treba zabezpečiť, aké aktivity fungujú a kde nájsť pet pekárne na Slovensku.",
-      en: "Dog parties are a growing trend. What you need to prepare, which activities work best and where to find pet bakeries in Slovakia.",
-    },
-  },
-  {
-    slug: "sportove-podujatie-bez-stresu",
-    date: "2026-05-10",
-    category: { sk: "Športové podujatia", en: "Sports Events" },
-    title: {
-      sk: "Firemný športový deň bez stresu: checklist pre organizátorov",
-      en: "Corporate sports day without the stress: organiser's checklist",
-    },
-    excerpt: {
-      sk: "Od výberu lokality po záchranku — praktický checklist, vďaka ktorému nezabudnete na nič podstatné pri plánovaní firemného športového dňa.",
-      en: "From venue selection to medical cover — a practical checklist so you don't miss anything important when planning a corporate sports day.",
-    },
-  },
-];
+type Post = {
+  _id: string;
+  titleSk: string;
+  titleEn?: string;
+  slug: { current: string };
+  publishedAt: string;
+  category: string;
+  excerptSk?: string;
+  excerptEn?: string;
+  mainImage?: { asset: object; alt?: string };
+};
+
+const categoryLabels: Record<string, { sk: string; en: string }> = {
+  teambuilding: { sk: "Teambuildingy", en: "Team Buildings" },
+  private: { sk: "Súkromné oslavy", en: "Private Parties" },
+  pet: { sk: "Zvieracie oslavy", en: "Pet Celebrations" },
+  sports: { sk: "Športové podujatia", en: "Sports Events" },
+  tips: { sk: "Tipy", en: "Tips" },
+};
 
 function formatDate(dateStr: string, lang: string) {
-  return new Date(dateStr).toLocaleDateString(lang === "sk" ? "sk-SK" : "en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  return new Date(dateStr).toLocaleDateString(
+    lang === "sk" ? "sk-SK" : "en-GB",
+    { day: "numeric", month: "long", year: "numeric" }
+  );
+}
+
+async function getPosts(): Promise<Post[]> {
+  if (!isSanityConfigured) return [];
+  try {
+    return await client.fetch<Post[]>(POSTS_QUERY, {}, { next: { revalidate: 60 } });
+  } catch {
+    return [];
+  }
 }
 
 export default async function BlogPage({
@@ -81,6 +71,7 @@ export default async function BlogPage({
   await getDictionary(lang);
 
   const isSk = lang === "sk";
+  const posts = await getPosts();
 
   return (
     <section className="px-6 py-24">
@@ -94,62 +85,84 @@ export default async function BlogPage({
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-muted">
             {isSk
-              ? "Tipy, inšpirácia a zákulisie z eventového sveta. Nové články čoskoro."
-              : "Tips, inspiration and behind the scenes from the events world. New articles coming soon."}
+              ? "Tipy, inšpirácia a zákulisie z eventového sveta."
+              : "Tips, inspiration and behind the scenes from the events world."}
           </p>
         </Reveal>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {placeholderPosts.map((post, i) => (
-            <Reveal key={post.slug} delay={i * 100} direction="up">
-              <article className="group flex flex-col rounded-2xl border border-gold/30 bg-background transition hover:border-gold hover:shadow-sm">
-                {/* Placeholder obrázok */}
-                <div className="flex h-48 items-center justify-center rounded-t-2xl bg-cream-dark">
-                  <span className="text-xs text-muted/40">
-                    {isSk ? "Obrázok čoskoro" : "Image coming soon"}
-                  </span>
-                </div>
-
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="mb-3 flex items-center justify-between gap-2">
-                    <span className="text-xs font-medium uppercase tracking-[0.15em] text-gold">
-                      {isSk ? post.category.sk : post.category.en}
-                    </span>
-                    <span className="text-xs text-muted/60">
-                      {formatDate(post.date, lang)}
-                    </span>
+        {posts.length > 0 ? (
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post, i) => (
+              <Reveal key={post._id} delay={i * 100} direction="up">
+                <Link
+                  href={`/${lang}/blog/${post.slug.current}`}
+                  className="group flex flex-col rounded-2xl border border-gold/30 bg-background transition hover:border-gold hover:shadow-sm"
+                >
+                  <div className="relative flex h-48 items-center justify-center overflow-hidden rounded-t-2xl bg-cream-dark">
+                    {post.mainImage?.asset ? (
+                      <Image
+                        src={urlFor(post.mainImage).width(600).height(400).url()}
+                        alt={post.mainImage.alt ?? post.titleSk}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <span className="text-xs text-muted/40">
+                        {isSk ? "Bez obrázka" : "No image"}
+                      </span>
+                    )}
                   </div>
 
-                  <h2 className="font-display text-lg font-semibold leading-snug group-hover:text-gold-dark transition">
-                    {isSk ? post.title.sk : post.title.en}
-                  </h2>
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-3 flex items-center justify-between gap-2">
+                      <span className="text-xs font-medium uppercase tracking-[0.15em] text-gold">
+                        {categoryLabels[post.category]?.[isSk ? "sk" : "en"] ?? post.category}
+                      </span>
+                      <span className="text-xs text-muted/60">
+                        {formatDate(post.publishedAt, lang)}
+                      </span>
+                    </div>
 
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-                    {isSk ? post.excerpt.sk : post.excerpt.en}
-                  </p>
+                    <h2 className="font-display text-lg font-semibold leading-snug transition group-hover:text-gold-dark">
+                      {isSk ? post.titleSk : (post.titleEn ?? post.titleSk)}
+                    </h2>
 
-                  <div className="mt-5 flex items-center gap-1 text-sm font-medium text-gold transition group-hover:gap-2">
-                    {isSk ? "Čítať ďalej" : "Read more"}
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
+                    {(isSk ? post.excerptSk : post.excerptEn) && (
+                      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                        {isSk ? post.excerptSk : post.excerptEn}
+                      </p>
+                    )}
+
+                    <div className="mt-5 flex items-center gap-1 text-sm font-medium text-gold transition group-hover:gap-2">
+                      {isSk ? "Čítať ďalej" : "Read more"}
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        className="h-4 w-4"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal delay={400} className="mt-16 rounded-2xl border border-dashed border-gold/40 bg-cream-dark/50 p-8 text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
-            {isSk ? "Pripravujeme" : "Coming soon"}
-          </p>
-          <p className="mt-2 text-muted">
-            {isSk
-              ? "Blog bude napojený na CMS — nové články budete môcť pridávať bez zásahu do kódu."
-              : "The blog will be connected to a CMS — new articles can be added without touching the code."}
-          </p>
-        </Reveal>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        ) : (
+          <Reveal className="rounded-2xl border border-dashed border-gold/40 bg-cream-dark/50 p-12 text-center">
+            <p className="font-display text-lg font-semibold">
+              {isSk ? "Čoskoro prvé články" : "First articles coming soon"}
+            </p>
+            <p className="mt-2 text-muted">
+              {isSk
+                ? "Blog je pripravený — čakáme na prvý obsah v Sanity CMS."
+                : "The blog is ready — waiting for the first content in Sanity CMS."}
+            </p>
+          </Reveal>
+        )}
       </div>
     </section>
   );

@@ -19,10 +19,11 @@ function getLocale(request: NextRequest): string {
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip internal Next.js paths, static files, API routes
+  // Skip internal Next.js paths, static files, API routes, and Sanity Studio
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
+    pathname.startsWith("/studio") ||
     pathname.includes(".") // static files
   ) {
     return NextResponse.next();
