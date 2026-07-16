@@ -37,7 +37,7 @@ export const blogPost = defineType({
         list: [
           { title: "Teambuildingy", value: "teambuilding" },
           { title: "Súkromné oslavy", value: "private" },
-          { title: "Zvieracie oslavy", value: "pet" },
+          { title: "Narodeninové oslavy", value: "birthday" },
           { title: "Športové podujatia", value: "sports" },
           { title: "Všeobecné tipy", value: "tips" },
         ],

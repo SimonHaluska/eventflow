@@ -1,11 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import type { Dictionary } from "../[lang]/dictionaries";
+import type { PortfolioContent } from "../../sanity/content";
 
-type Props = { dict: Dictionary["portfolio"] };
+type Props = { dict: PortfolioContent };
 
-type Item = Dictionary["portfolio"]["items"][number];
+type Item = PortfolioContent["items"][number];
 
 function CarouselItem({
   item,
@@ -27,11 +28,23 @@ function CarouselItem({
       style={{ transform: isCenter ? "scale(1)" : "scale(0.9)" }}
     >
       <div
-        className={`flex items-center justify-center bg-cream-dark transition-all duration-500 ${
+        className={`relative overflow-hidden bg-cream-dark transition-all duration-500 ${
           isCenter ? "h-56 sm:h-72" : "h-40 sm:h-52"
         }`}
       >
-        <span className="text-sm text-muted/40">{photoSoon}</span>
+        {item.imageUrl ? (
+          <Image
+            src={item.imageUrl}
+            alt={item.imageAlt ?? item.label}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 288px, 384px"
+          />
+        ) : (
+          <div className="flex h-full items-center justify-center">
+            <span className="text-sm text-muted/40">{photoSoon}</span>
+          </div>
+        )}
       </div>
       <div className={`p-4 ${isCenter ? "sm:p-6" : ""}`}>
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
@@ -62,11 +75,11 @@ export default function PortfolioCarousel({ dict }: Props) {
 
   return (
     <div>
-      <div className="flex items-center justify-center gap-3 sm:gap-6">
+      <div className="flex items-center justify-center gap-3 sm:gap-5">
         <button
           onClick={prev}
           aria-label={dict.prevLabel}
-          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/50 transition hover:border-gold hover:text-gold"
+          className="z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/50 transition hover:border-gold hover:text-gold"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-4 w-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -86,7 +99,7 @@ export default function PortfolioCarousel({ dict }: Props) {
         <button
           onClick={next}
           aria-label={dict.nextLabel}
-          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/50 transition hover:border-gold hover:text-gold"
+          className="z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/30 text-gold/50 transition hover:border-gold hover:text-gold"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-4 w-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -95,11 +108,11 @@ export default function PortfolioCarousel({ dict }: Props) {
       </div>
 
       <div className="mt-6 flex justify-center gap-2">
-        {dict.items.map((_, i) => (
+        {dict.items.map((item, i) => (
           <button
-            key={i}
+            key={item.id}
             onClick={() => setCurrent(i)}
-            aria-label={`${dict.itemLabel} ${i + 1}`}
+            aria-label={`${dict.itemLabel} ${item.label}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               i === current ? "w-6 bg-gold" : "w-1.5 bg-gold/30"
             }`}

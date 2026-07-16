@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import HowItWorks from "../../components/HowItWorks";
+import { getHowItWorksContent, getPageMeta } from "../../../sanity/content";
 import { getDictionary, hasLocale } from "../dictionaries";
 
 export async function generateMetadata({
@@ -11,10 +12,7 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return {
-    title: dict.meta.howItWorks.title,
-    description: dict.meta.howItWorks.description,
-  };
+  return getPageMeta("howItWorks", lang, dict);
 }
 
 export default async function AkoToFunguiePage({
@@ -25,5 +23,6 @@ export default async function AkoToFunguiePage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
-  return <HowItWorks dict={dict.howItWorks} />;
+  const howItWorks = await getHowItWorksContent(lang, dict);
+  return <HowItWorks dict={howItWorks} />;
 }

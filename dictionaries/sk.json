@@ -14,7 +14,11 @@
     },
     "pricing": {
       "title": "Cenník | Momentum Events",
-      "description": "Tri balíky služieb pre každý segment — súkromné oslavy, zvieracie eventy, teambuildingy a športové podujatia."
+      "description": "Tri balíky služieb pre každý segment — súkromné oslavy, narodeninové oslavy, teambuildingy a športové podujatia."
+    },
+    "services": {
+      "title": "Naše služby | Momentum Events",
+      "description": "Štyri segmenty eventov — súkromné oslavy, narodeninové oslavy, teambuildingy a športové podujatia."
     },
     "portfolio": {
       "title": "Portfólio | Momentum Events",
@@ -33,6 +37,7 @@
     "logoAlt": "Logo Momentum Events",
     "nav": {
       "home": "Úvod",
+      "services": "Naše služby",
       "pricing": "Cenník",
       "howItWorks": "Ako to funguje",
       "portfolio": "Portfólio",
@@ -50,6 +55,7 @@
     "navTitle": "Navigácia",
     "nav": {
       "home": "Úvod",
+      "services": "Naše služby",
       "pricing": "Cenník",
       "howItWorks": "Ako to funguje",
       "portfolio": "Portfólio",
@@ -60,7 +66,7 @@
     "segmentsTitle": "Segmenty",
     "segments": [
       { "label": "Súkromné oslavy", "slug": "/sluzby" },
-      { "label": "Zvieracie oslavy", "slug": "/sluzby" },
+      { "label": "Narodeninové oslavy", "slug": "/sluzby" },
       { "label": "Teambuildingy", "slug": "/sluzby" },
       { "label": "Športové podujatia", "slug": "/sluzby" }
     ],
@@ -70,8 +76,9 @@
   "home": {
     "heroTitle": "Od konceptu po",
     "heroTitleHighlight": "posledného hosťa",
-    "heroSubtitle": "Športové podujatia, firemné teambuildingy a súkromné oslavy — vrátane pet-friendly eventov.",
+    "heroSubtitle": "Súkromné oslavy, narodeninové oslavy pre deti aj dospelých, firemné teambuildingy a športové podujatia.",
     "heroCta": "Naše služby",
+    "heroCtaHref": "/nase-sluzby",
     "heroCtaSecondary": "Kontaktujte nás"
   },
   "partners": {
@@ -101,29 +108,29 @@
       {
         "name": "Andrea Fačkovcová",
         "role": "Spoluzakladateľka & konateľka",
-        "focus": "Súkromné a zvieracie oslavy",
-        "description": "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+        "focus": "Súkromné a narodeninové oslavy",
+        "description": "Vedie projekty s osobným príbehom — narodeniny pre deti aj dospelých a rodinné oslavy, kde záleží na každom detaile a atmosfére.",
         "initials": "AF"
       },
       {
         "name": "Veronika Tóthová",
         "role": "Spoluzakladateľka & konateľka",
-        "focus": "Súkromné a zvieracie oslavy",
-        "description": "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+        "focus": "Súkromné a narodeninové oslavy",
+        "description": "Vedie projekty s osobným príbehom — narodeniny pre deti aj dospelých a rodinné oslavy, kde záleží na každom detaile a atmosfére.",
         "initials": "VT"
       },
       {
         "name": "Lucia Pazderová",
         "role": "Spoluzakladateľka & konateľka",
-        "focus": "Súkromné a zvieracie oslavy",
-        "description": "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+        "focus": "Súkromné a narodeninové oslavy",
+        "description": "Vedie projekty s osobným príbehom — narodeniny pre deti aj dospelých a rodinné oslavy, kde záleží na každom detaile a atmosfére.",
         "initials": "LP"
       },
       {
         "name": "Petra Filipovičová",
         "role": "Spoluzakladateľka & konateľka",
-        "focus": "Súkromné a zvieracie oslavy",
-        "description": "Vedie projekty s osobným príbehom — narodeniny, rodinné oslavy a pet-friendly eventy, kde záleží na každom detaile a atmosfére.",
+        "focus": "Súkromné a narodeninové oslavy",
+        "description": "Vedie projekty s osobným príbehom — narodeniny pre deti aj dospelých a rodinné oslavy, kde záleží na každom detaile a atmosfére.",
         "initials": "PF"
       }
     ],
@@ -154,8 +161,8 @@
       },
       {
         "id": "pet",
-        "title": "Zvieracie oslavy",
-        "description": "Pet-friendly oslavy pre vaše štvornohé priateľe. Agility, pet pekárne a zábava pre celú psíčiu partiu."
+        "title": "Narodeninové oslavy",
+        "description": "Narodeninové oslavy pre deti aj dospelých. Témy na mieru, zábavný program a atmosféra, na ktorú sa nezabudne."
       },
       {
         "id": "teambuilding",
@@ -231,17 +238,17 @@
       },
       {
         "id": "pet",
-        "label": "Zvieracie oslavy",
+        "label": "Narodeninové oslavy",
         "packages": [
           {
             "name": "Basic",
             "subtitle": "Koordinácia v deň D",
             "price": "100 – 120 €",
             "features": [
-              "Pomoc na mieste počas oslavy",
-              "Organizácia zvieracích súťaží",
-              "Koordinácia krájania torty a programu",
-              "Riešenie situácií v deň D"
+              "Osobná prítomnosť na mieste počas oslavy",
+              "Koordinácia programu a krájania torty",
+              "Vítanie hostí a usmerňovanie priebehu",
+              "Riešenie nečakaných situácií v deň D"
             ]
           },
           {
@@ -251,9 +258,9 @@
             "highlighted": true,
             "features": [
               "Všetko z balíka Basic",
-              "Pet-friendly výzdoba na mieru",
-              "Zabezpečenie pet pekárne a doplnkov",
-              "Pozvánky pre ostatných psíčkarov"
+              "Tematická výzdoba a dekorácie na mieru",
+              "Odporúčanie a koordinácia dodávateľov",
+              "Pozvánky a detailný harmonogram dňa"
             ]
           },
           {
@@ -262,9 +269,9 @@
             "price": "od 400 € + dodávatelia",
             "features": [
               "Všetko z balíka Standard",
-              "Prenájom cvičáku alebo parku",
-              "Profi fotograf zvierat a agility prekážky",
-              "Darčekové balíčky pre hostí"
+              "Prenájom priestorov a kompletná výzdoba",
+              "Profi fotograf a zábavný program",
+              "Darčekové balíčky a personalizované detaily"
             ]
           }
         ]
@@ -435,7 +442,7 @@
     "itemLabel": "Položka",
     "items": [
       { "id": 1, "category": "Súkromné oslavy", "label": "Narodeninová oslava" },
-      { "id": 2, "category": "Zvieracie oslavy", "label": "Pet párty" },
+      { "id": 2, "category": "Narodeninové oslavy", "label": "Narodeninová oslava" },
       { "id": 3, "category": "Teambuilding", "label": "Firemný víkend" },
       { "id": 4, "category": "Športové podujatia", "label": "Charitatívny beh" },
       { "id": 5, "category": "Teambuilding", "label": "Outdoor teambuilding" },
@@ -460,7 +467,7 @@
       "messagePlaceholder": "Popíšte váš event — dátum, počet hostí, predstavy...",
       "submit": "Odoslať dopyt",
       "submitting": "Odosielam...",
-      "segments": ["Súkromné oslavy", "Zvieracie oslavy", "Teambuildingy", "Športové podujatia", "Neviem / chcem poradiť"],
+      "segments": ["Súkromné oslavy", "Narodeninové oslavy", "Teambuildingy", "Športové podujatia", "Neviem / chcem poradiť"],
       "packages": ["Basic", "Standard", "Premium", "Neviem"]
     }
   },

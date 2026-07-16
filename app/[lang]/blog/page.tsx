@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "../../components/Reveal";
-import { getDictionary, hasLocale } from "../dictionaries";
+import { getBlogMeta, getBlogPageContent } from "../../../sanity/content";
+import { hasLocale } from "../dictionaries";
 import { client } from "../../../sanity/client";
 import { isSanityConfigured } from "../../../sanity/env";
 import { POSTS_QUERY } from "../../../sanity/queries";
@@ -16,13 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
-  const isSk = lang === "sk";
-  return {
-    title: isSk ? "Blog | Momentum Events" : "Blog | Momentum Events",
-    description: isSk
-      ? "Tipy, inšpirácia a zákulisie z eventového sveta."
-      : "Tips, inspiration and behind the scenes from the events world.",
-  };
+  return getBlogMeta(lang);
 }
 
 type Post = {
@@ -40,7 +35,7 @@ type Post = {
 const categoryLabels: Record<string, { sk: string; en: string }> = {
   teambuilding: { sk: "Teambuildingy", en: "Team Buildings" },
   private: { sk: "Súkromné oslavy", en: "Private Parties" },
-  pet: { sk: "Zvieracie oslavy", en: "Pet Celebrations" },
+  birthday: { sk: "Narodeninové oslavy", en: "Birthday Parties" },
   sports: { sk: "Športové podujatia", en: "Sports Events" },
   tips: { sk: "Tipy", en: "Tips" },
 };
@@ -68,26 +63,21 @@ export default async function BlogPage({
 }) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
-  await getDictionary(lang);
 
   const isSk = lang === "sk";
-  const posts = await getPosts();
+  const [posts, page] = await Promise.all([getPosts(), getBlogPageContent(lang)]);
 
   return (
     <section className="px-6 py-24">
       <div className="mx-auto max-w-5xl">
         <Reveal className="mb-14 text-center">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.25em] text-gold">
-            {isSk ? "Zákulisie & tipy" : "Behind the scenes & tips"}
+            {page.label}
           </p>
           <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            Blog
+            {page.title}
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-muted">
-            {isSk
-              ? "Tipy, inšpirácia a zákulisie z eventového sveta."
-              : "Tips, inspiration and behind the scenes from the events world."}
-          </p>
+          <p className="mx-auto mt-4 max-w-xl text-muted">{page.subtitle}</p>
         </Reveal>
 
         {posts.length > 0 ? (
@@ -108,9 +98,7 @@ export default async function BlogPage({
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     ) : (
-                      <span className="text-xs text-muted/40">
-                        {isSk ? "Bez obrázka" : "No image"}
-                      </span>
+                      <span className="text-xs text-muted/40">{page.noImage}</span>
                     )}
                   </div>
 
@@ -135,7 +123,7 @@ export default async function BlogPage({
                     )}
 
                     <div className="mt-5 flex items-center gap-1 text-sm font-medium text-gold transition group-hover:gap-2">
-                      {isSk ? "Čítať ďalej" : "Read more"}
+                      {page.readMore}
                       <svg
                         viewBox="0 0 24 24"
                         fill="none"
@@ -153,14 +141,7 @@ export default async function BlogPage({
           </div>
         ) : (
           <Reveal className="rounded-2xl border border-dashed border-gold/40 bg-cream-dark/50 p-12 text-center">
-            <p className="font-display text-lg font-semibold">
-              {isSk ? "Čoskoro prvé články" : "First articles coming soon"}
-            </p>
-            <p className="mt-2 text-muted">
-              {isSk
-                ? "Blog je pripravený — čakáme na prvý obsah v Sanity CMS."
-                : "The blog is ready — waiting for the first content in Sanity CMS."}
-            </p>
+            <p className="font-display text-lg font-semibold">{page.empty}</p>
           </Reveal>
         )}
       </div>

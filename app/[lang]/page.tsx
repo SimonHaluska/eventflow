@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import HeroLogoAnimation from "../components/HeroLogoAnimation";
+import HeroBanner from "../components/HeroBanner";
 import Partners from "../components/Partners";
 import Testimonials from "../components/Testimonials";
+import { getPageMeta } from "../../sanity/content";
+import {
+  getHeroBanners,
+  getHomepageContent,
+  getPartners,
+  getTestimonials,
+} from "../../sanity/fetch";
 import { getDictionary, hasLocale } from "./dictionaries";
 
 export async function generateMetadata({
@@ -13,10 +20,7 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return {
-    title: dict.meta.home.title,
-    description: dict.meta.home.description,
-  };
+  return getPageMeta("home", lang, dict);
 }
 
 export default async function Home({
@@ -28,17 +32,24 @@ export default async function Home({
   if (!hasLocale(lang)) notFound();
 
   const dict = await getDictionary(lang);
-  const d = dict.home;
+  const [homepage, banners, partners, testimonials] = await Promise.all([
+    getHomepageContent(lang, dict),
+    getHeroBanners(lang),
+    getPartners(),
+    getTestimonials(lang),
+  ]);
 
   return (
     <>
-      <HeroLogoAnimation
-        title={d.heroTitle}
-        titleHighlight={d.heroTitleHighlight}
+      <HeroBanner
+        banners={banners}
+        fallbackTitle={homepage.heroTitle}
+        fallbackTitleHighlight={homepage.heroTitleHighlight}
+        lang={lang}
       />
 
-      <Partners dict={dict.partners} />
-      <Testimonials dict={dict.testimonials} />
+      <Partners section={homepage.partners} partners={partners} />
+      <Testimonials section={homepage.testimonials} testimonials={testimonials} />
     </>
   );
 }

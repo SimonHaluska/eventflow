@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { submitContact } from "../actions/contact";
 import type { Dictionary } from "../[lang]/dictionaries";
 import Reveal from "./Reveal";
@@ -14,7 +15,12 @@ const inputClass =
   "w-full rounded-xl border border-gold/40 bg-background px-4 py-3 text-sm outline-none transition focus:border-gold";
 
 export default function Packages({ dict }: Props) {
-  const [activeSegment, setActiveSegment] = useState(dict.segments[0].id);
+  const searchParams = useSearchParams();
+  const initialSegment = (() => {
+    const param = searchParams.get("segment");
+    return dict.segments.find((s) => s.id === param)?.id ?? dict.segments[0].id;
+  })();
+  const [activeSegment, setActiveSegment] = useState(initialSegment);
   const [selectedPkg, setSelectedPkg] = useState<{ segment: string; pkg: string } | null>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const [state, formAction] = useActionState(

@@ -2,11 +2,21 @@
 
 import { useCallback, useEffect, useState } from "react";
 import type { Dictionary } from "../[lang]/dictionaries";
+import type { TeamMemberData } from "../../sanity/types";
 import Reveal from "./Reveal";
 
-type Props = { dict: Dictionary["about"] };
+type Props = {
+  dict: Dictionary["about"];
+  founders?: TeamMemberData[];
+};
 
-type Founder = Dictionary["about"]["founders"][number];
+type Founder = {
+  name: string;
+  role: string;
+  focus: string;
+  description: string;
+  initials: string;
+};
 
 function FounderCard({
   founder,
@@ -47,9 +57,20 @@ function FounderCard({
   );
 }
 
-export default function About({ dict }: Props) {
+export default function About({ dict, founders }: Props) {
+  const team: Founder[] =
+    founders && founders.length > 0
+      ? founders
+      : dict.founders.map((f) => ({
+          name: f.name,
+          role: f.role,
+          focus: f.focus,
+          description: f.description,
+          initials: f.initials,
+        }));
+
   const [current, setCurrent] = useState(0);
-  const total = dict.founders.length;
+  const total = team.length;
 
   const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
   const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
@@ -88,11 +109,11 @@ export default function About({ dict }: Props) {
 
           <div className="flex items-center justify-center gap-4 overflow-hidden">
             <button onClick={prev} className="focus:outline-none">
-              <FounderCard founder={dict.founders[leftIdx]} position="left" />
+              <FounderCard founder={team[leftIdx]} position="left" />
             </button>
-            <FounderCard founder={dict.founders[current]} position="center" />
+            <FounderCard founder={team[current]} position="center" />
             <button onClick={next} className="focus:outline-none">
-              <FounderCard founder={dict.founders[rightIdx]} position="right" />
+              <FounderCard founder={team[rightIdx]} position="right" />
             </button>
           </div>
 
@@ -108,11 +129,11 @@ export default function About({ dict }: Props) {
         </div>
 
         <div className="mt-6 flex justify-center gap-2">
-          {dict.founders.map((_, i) => (
+          {team.map((member, i) => (
             <button
-              key={i}
+              key={member.name}
               onClick={() => setCurrent(i)}
-              aria-label={`${dict.founders[i].name}`}
+              aria-label={member.name}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 i === current ? "w-6 bg-gold" : "w-1.5 bg-gold/30"
               }`}

@@ -3,14 +3,19 @@
 import { useActionState } from "react";
 import { submitContact } from "../actions/contact";
 import type { Dictionary } from "../[lang]/dictionaries";
+import type { SiteSettingsData } from "../../sanity/types";
 import Reveal from "./Reveal";
 
-type Props = { dict: Dictionary["contact"] };
+type Props = {
+  dict: Dictionary["contact"];
+  siteSettings?: SiteSettingsData | null;
+  lang: string;
+};
 
 const inputClass =
   "w-full rounded-xl border border-gold/40 bg-background px-4 py-3 text-sm outline-none transition focus:border-gold";
 
-export default function Contact({ dict }: Props) {
+export default function Contact({ dict, siteSettings, lang }: Props) {
   const [state, formAction, pending] = useActionState(
     async (_prev: { ok: boolean; message: string } | null, formData: FormData) =>
       submitContact(formData),
@@ -29,6 +34,47 @@ export default function Contact({ dict }: Props) {
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted">{dict.subtitle}</p>
         </Reveal>
+
+        {siteSettings && (siteSettings.email || siteSettings.phone || siteSettings.openingHours) && (
+          <Reveal delay={80} className="mb-10 grid gap-4 rounded-2xl border border-gold/25 bg-cream-dark/40 p-6 sm:grid-cols-3">
+            {siteSettings.email && (
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
+                  E-mail
+                </p>
+                <a
+                  href={`mailto:${siteSettings.email}`}
+                  className="mt-2 block text-sm text-foreground transition hover:text-gold"
+                >
+                  {siteSettings.email}
+                </a>
+              </div>
+            )}
+            {siteSettings.phone && (
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
+                  {lang === "sk" ? "Telefón" : "Phone"}
+                </p>
+                <a
+                  href={`tel:${siteSettings.phone.replace(/\s/g, "")}`}
+                  className="mt-2 block text-sm text-foreground transition hover:text-gold"
+                >
+                  {siteSettings.phone}
+                </a>
+              </div>
+            )}
+            {siteSettings.openingHours && (
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
+                  {lang === "sk" ? "Otváracie hodiny" : "Opening hours"}
+                </p>
+                <p className="mt-2 whitespace-pre-line text-sm text-muted">
+                  {siteSettings.openingHours}
+                </p>
+              </div>
+            )}
+          </Reveal>
+        )}
         <Reveal delay={150}>
           {state?.ok ? (
             <div className="rounded-2xl border border-gold bg-gold/[0.05] p-8 text-center">

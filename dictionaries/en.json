@@ -14,7 +14,11 @@
     },
     "pricing": {
       "title": "Pricing | Momentum Events",
-      "description": "Three service packages for every segment — private celebrations, pet events, team buildings and sports events."
+      "description": "Three service packages for every segment — private celebrations, birthday parties, team buildings and sports events."
+    },
+    "services": {
+      "title": "Our Services | Momentum Events",
+      "description": "Four event segments — private celebrations, birthday parties, team buildings and sports events."
     },
     "portfolio": {
       "title": "Portfolio | Momentum Events",
@@ -33,6 +37,7 @@
     "logoAlt": "Momentum Events Logo",
     "nav": {
       "home": "Home",
+      "services": "Our Services",
       "pricing": "Pricing",
       "howItWorks": "How It Works",
       "portfolio": "Portfolio",
@@ -50,6 +55,7 @@
     "navTitle": "Navigation",
     "nav": {
       "home": "Home",
+      "services": "Our Services",
       "pricing": "Pricing",
       "howItWorks": "How It Works",
       "portfolio": "Portfolio",
@@ -60,7 +66,7 @@
     "segmentsTitle": "Segments",
     "segments": [
       { "label": "Private Celebrations", "slug": "/sluzby" },
-      { "label": "Pet Celebrations", "slug": "/sluzby" },
+      { "label": "Birthday Parties", "slug": "/sluzby" },
       { "label": "Team Buildings", "slug": "/sluzby" },
       { "label": "Sports Events", "slug": "/sluzby" }
     ],
@@ -70,8 +76,9 @@
   "home": {
     "heroTitle": "From concept to",
     "heroTitleHighlight": "the last guest",
-    "heroSubtitle": "Sports events, corporate team buildings and private celebrations — including pet-friendly events.",
+    "heroSubtitle": "Private celebrations, birthday parties for kids and adults, corporate team buildings and sports events.",
     "heroCta": "Our Services",
+    "heroCtaHref": "/nase-sluzby",
     "heroCtaSecondary": "Contact Us"
   },
   "partners": {
@@ -101,29 +108,29 @@
       {
         "name": "Andrea Fačkovcová",
         "role": "Co-founder & Managing Director",
-        "focus": "Private and pet celebrations",
-        "description": "Leads projects with a personal story — birthdays, family celebrations and pet-friendly events, where every detail and atmosphere matters.",
+        "focus": "Private and birthday celebrations",
+        "description": "Leads projects with a personal story — birthdays for kids and adults and family celebrations, where every detail and atmosphere matters.",
         "initials": "AF"
       },
       {
         "name": "Veronika Tóthová",
         "role": "Co-founder & Managing Director",
-        "focus": "Private and pet celebrations",
-        "description": "Leads projects with a personal story — birthdays, family celebrations and pet-friendly events, where every detail and atmosphere matters.",
+        "focus": "Private and birthday celebrations",
+        "description": "Leads projects with a personal story — birthdays for kids and adults and family celebrations, where every detail and atmosphere matters.",
         "initials": "VT"
       },
       {
         "name": "Lucia Pazderová",
         "role": "Co-founder & Managing Director",
-        "focus": "Private and pet celebrations",
-        "description": "Leads projects with a personal story — birthdays, family celebrations and pet-friendly events, where every detail and atmosphere matters.",
+        "focus": "Private and birthday celebrations",
+        "description": "Leads projects with a personal story — birthdays for kids and adults and family celebrations, where every detail and atmosphere matters.",
         "initials": "LP"
       },
       {
         "name": "Petra Filipovičová",
         "role": "Co-founder & Managing Director",
-        "focus": "Private and pet celebrations",
-        "description": "Leads projects with a personal story — birthdays, family celebrations and pet-friendly events, where every detail and atmosphere matters.",
+        "focus": "Private and birthday celebrations",
+        "description": "Leads projects with a personal story — birthdays for kids and adults and family celebrations, where every detail and atmosphere matters.",
         "initials": "PF"
       }
     ],
@@ -154,8 +161,8 @@
       },
       {
         "id": "pet",
-        "title": "Pet Celebrations",
-        "description": "Pet-friendly parties for your four-legged friends. Agility, pet bakeries and fun for the whole dog crew."
+        "title": "Birthday Parties",
+        "description": "Birthday parties for kids and adults. Custom themes, fun activities and an atmosphere nobody will forget."
       },
       {
         "id": "teambuilding",
@@ -231,17 +238,17 @@
       },
       {
         "id": "pet",
-        "label": "Pet Celebrations",
+        "label": "Birthday Parties",
         "packages": [
           {
             "name": "Basic",
             "subtitle": "Day-of Coordination",
             "price": "100 – 120 €",
             "features": [
-              "On-site assistance during the celebration",
-              "Organisation of animal competitions",
-              "Coordination of cake cutting and programme",
-              "Handling situations on the day"
+              "Personal presence on-site during the party",
+              "Coordination of programme and cake cutting",
+              "Welcoming guests and managing the flow",
+              "Handling unexpected situations on the day"
             ]
           },
           {
@@ -251,9 +258,9 @@
             "highlighted": true,
             "features": [
               "Everything in Basic",
-              "Custom pet-friendly décor",
-              "Sourcing pet bakery and accessories",
-              "Invitations for fellow dog owners"
+              "Custom themed décor and decorations",
+              "Supplier recommendations and coordination",
+              "Invitations and detailed day schedule"
             ]
           },
           {
@@ -262,9 +269,9 @@
             "price": "from 400 € + suppliers",
             "features": [
               "Everything in Standard",
-              "Dog training centre or park rental",
-              "Professional animal photographer and agility course",
-              "Gift bags for guests"
+              "Venue rental and full decoration",
+              "Professional photographer and entertainment",
+              "Gift bags and personalised details"
             ]
           }
         ]
@@ -435,7 +442,7 @@
     "itemLabel": "Item",
     "items": [
       { "id": 1, "category": "Private Celebrations", "label": "Birthday Party" },
-      { "id": 2, "category": "Pet Celebrations", "label": "Pet Party" },
+      { "id": 2, "category": "Birthday Parties", "label": "Birthday Party" },
       { "id": 3, "category": "Team Building", "label": "Corporate Weekend" },
       { "id": 4, "category": "Sports Events", "label": "Charity Run" },
       { "id": 5, "category": "Team Building", "label": "Outdoor Team Building" },
@@ -460,7 +467,7 @@
       "messagePlaceholder": "Describe your event — date, number of guests, vision...",
       "submit": "Send Enquiry",
       "submitting": "Sending...",
-      "segments": ["Private Celebrations", "Pet Celebrations", "Team Buildings", "Sports Events", "Not sure / need advice"],
+      "segments": ["Private Celebrations", "Birthday Parties", "Team Buildings", "Sports Events", "Not sure / need advice"],
       "packages": ["Basic", "Standard", "Premium", "Not sure"]
     }
   },

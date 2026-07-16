@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import About from "../../components/About";
-import Services from "../../components/Services";
+import { getAboutContent, getPageMeta } from "../../../sanity/content";
+import { getTeamMembers } from "../../../sanity/fetch";
 import { getDictionary, hasLocale } from "../dictionaries";
 
 export async function generateMetadata({
@@ -12,10 +13,7 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return {
-    title: dict.meta.about.title,
-    description: dict.meta.about.description,
-  };
+  return getPageMeta("about", lang, dict);
 }
 
 export default async function ONasPage({
@@ -26,10 +24,9 @@ export default async function ONasPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
-  return (
-    <>
-      <About dict={dict.about} />
-      <Services dict={dict.services} />
-    </>
-  );
+  const [about, founders] = await Promise.all([
+    getAboutContent(lang, dict),
+    getTeamMembers(lang),
+  ]);
+  return <About dict={about} founders={founders} />;
 }

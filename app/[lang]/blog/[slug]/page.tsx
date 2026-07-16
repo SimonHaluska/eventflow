@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { hasLocale } from "../../dictionaries";
+import { getBlogPageContent } from "../../../../sanity/content";
 import { client } from "../../../../sanity/client";
 import { isSanityConfigured } from "../../../../sanity/env";
 import { POST_QUERY, POST_SLUGS_QUERY } from "../../../../sanity/queries";
@@ -28,7 +29,7 @@ type Post = {
 const categoryLabels: Record<string, { sk: string; en: string }> = {
   teambuilding: { sk: "Teambuildingy", en: "Team Buildings" },
   private: { sk: "Súkromné oslavy", en: "Private Parties" },
-  pet: { sk: "Zvieracie oslavy", en: "Pet Celebrations" },
+  birthday: { sk: "Narodeninové oslavy", en: "Birthday Parties" },
   sports: { sk: "Športové podujatia", en: "Sports Events" },
   tips: { sk: "Tipy", en: "Tips" },
 };
@@ -114,6 +115,7 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const isSk = lang === "sk";
+  const page = await getBlogPageContent(lang);
   const title = isSk ? post.titleSk : (post.titleEn ?? post.titleSk);
   const excerpt = isSk ? post.excerptSk : post.excerptEn;
   const content = isSk ? post.contentSk : (post.contentEn ?? post.contentSk);
@@ -131,7 +133,7 @@ export default async function BlogPostPage({
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
-          {isSk ? "Späť na blog" : "Back to blog"}
+          {page.backToBlog}
         </Link>
 
         {/* Header */}
@@ -175,9 +177,7 @@ export default async function BlogPostPage({
             <PortableText value={content} components={portableTextComponents} />
           </div>
         ) : (
-          <p className="text-muted italic">
-            {isSk ? "Obsah článku čoskoro." : "Article content coming soon."}
-          </p>
+          <p className="text-muted italic">{page.emptyContent}</p>
         )}
 
         {/* Back to blog */}
@@ -189,7 +189,7 @@ export default async function BlogPostPage({
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
-            {isSk ? "Všetky články" : "All articles"}
+            {page.allPosts}
           </Link>
         </div>
       </div>

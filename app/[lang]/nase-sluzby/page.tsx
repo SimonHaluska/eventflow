@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Contact from "../../components/Contact";
-import { getContactContent, getPageMeta } from "../../../sanity/content";
-import { getSiteSettings } from "../../../sanity/fetch";
+import Services from "../../components/Services";
+import { getPageMeta, getServicesContent } from "../../../sanity/content";
 import { getDictionary, hasLocale } from "../dictionaries";
 
 export async function generateMetadata({
@@ -13,10 +12,10 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return getPageMeta("contact", lang, dict);
+  return getPageMeta("services", lang, dict);
 }
 
-export default async function KontaktPage({
+export default async function NaseSluzbyPage({
   params,
 }: {
   params: Promise<{ lang: string }>;
@@ -24,11 +23,6 @@ export default async function KontaktPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
-  const [contact, siteSettings] = await Promise.all([
-    getContactContent(lang, dict),
-    getSiteSettings(lang),
-  ]);
-  return (
-    <Contact dict={contact} siteSettings={siteSettings} lang={lang} />
-  );
+  const services = await getServicesContent(lang, dict);
+  return <Services dict={services} />;
 }

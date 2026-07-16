@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getPageMeta, getPrivacyContent } from "../../../sanity/content";
 import { getDictionary, hasLocale } from "../dictionaries";
 
 export async function generateMetadata({
@@ -10,10 +11,7 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang);
-  return {
-    title: dict.meta.privacy.title,
-    description: dict.meta.privacy.description,
-  };
+  return getPageMeta("privacy", lang, dict);
 }
 
 export default async function OchranaUdajovPage({
@@ -24,7 +22,7 @@ export default async function OchranaUdajovPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
-  const d = dict.privacy;
+  const d = await getPrivacyContent(lang, dict);
 
   return (
     <section className="px-6 py-24">
