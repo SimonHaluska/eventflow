@@ -26,6 +26,7 @@
 
 html {
   color-scheme: light;
+  overflow-x: hidden;
 }
 
 body {
@@ -115,3 +116,123 @@ body {
 .delay-500 { animation-delay: 0.5s; }
 .delay-700 { animation-delay: 0.7s; }
 .delay-900 { animation-delay: 0.9s; }
+
+/* Splash screen — dočasný intro efekt */
+@keyframes splash-logo-roll {
+  0% {
+    opacity: 0;
+    transform: translateY(80px) scale(0.55) rotate(-12deg);
+    filter: blur(12px);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(-18px) scale(1.08) rotate(6deg);
+    filter: blur(0);
+  }
+  55% {
+    transform: translateY(10px) scale(0.96) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-4px) scale(1.02) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes splash-ripple {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+@keyframes splash-wave-rise {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes splash-screen-exit {
+  0% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  overflow: hidden;
+}
+
+.splash-screen--exit {
+  animation: splash-screen-exit 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: none;
+}
+
+.splash-logo-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.splash-logo {
+  animation: splash-logo-roll 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.splash-ripples {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.splash-ripple {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+  animation: splash-ripple 2s ease-out infinite;
+}
+
+.splash-ripple--1 { animation-delay: 0.3s; }
+.splash-ripple--2 { animation-delay: 0.7s; }
+.splash-ripple--3 { animation-delay: 1.1s; }
+
+.splash-wave {
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: 40%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--gold) 8%, var(--background)) 40%,
+    color-mix(in srgb, var(--gold) 15%, var(--background)) 100%
+  );
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+  animation: splash-wave-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  z-index: 1;
+}
